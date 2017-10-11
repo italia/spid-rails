@@ -7,34 +7,37 @@ class Spid::Rails::SpidController < ApplicationController
   end
 
   def sp_settings
-    settings = OneLogin::RubySaml::Settings.new
-    # Indirizzo del metadata del service provider: /spid/metadata.
-    settings.issuer = metadata_url
-    # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
-    settings.assertion_consumer_service_url = sso_url
-    # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
-    settings.single_logout_service_url = slo_url
-    # Richiedi firma all'IDP
-    # TODO: La firma non viene controllata
-    settings.security[:want_assertions_signed] = true
+    settings = OneLogin::RubySaml::Settings.new sp_attributes
+  end
 
-    settings
+  def sp_attributes
+    {
+      # Indirizzo del metadata del service provider: /spid/metadata.
+      issuer: metadata_url
+      # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
+      assertion_consumer_service_url: sso_url
+      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
+      single_logout_service_url: = slo_url
+      # Richiedi firma all'IDP
+      # TODO: La firma non viene controllata
+      security[:want_assertions_signed] => true
+    }
   end
 
   def idp_settings
-    parser = OneLogin::RubySaml::IdpMetadataParser.new
-
-    settings = parser.parse_remote idp_xml(:gov),
-                                   true,
-                                   sso_binding: [binding(:redirect)]
-
-    settings.issuer        = metadata_url
+    settings = OneLogin::RubySaml::Settings.new idp_attributes.merge(sp_attributes)
     settings.authn_context = authn_context
     settings.authn_context_comparison = 'minimum'
 
     settings.sessionindex = session[:index]
-
     settings
+  end
+
+  def idp_attributes
+    parser = OneLogin::RubySaml::IdpMetadataParser.new
+    parser.parse_remote_to_hash idp_xml(:gov),
+                                true,
+                                sso_binding: [binding(:redirect)]
   end
 
   def binding request_type
