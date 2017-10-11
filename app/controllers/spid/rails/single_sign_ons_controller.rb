@@ -9,7 +9,7 @@ class Spid::Rails::SingleSignOnsController < Spid::Rails::SpidController
 
   def create
     response = OneLogin::RubySaml::Response.new(params[:SAMLResponse],
-                                                skip_subject_confirmation: true)
+                                                skip_recipient: true)
     response.settings = saml_settings
     if response.is_valid?
       session[:index] = response.sessionindex
