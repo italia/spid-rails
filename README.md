@@ -34,7 +34,8 @@ repository: https://github.com/rubynetti/rubynetti-rails
 - [ ] Sistema di testing automatico
 - [ ] Sistema di configurazione
 - [ ] Test con certificati e server di identificazione (esempio poste)
-
+- [ ] Integrazione con omniauth
+- [ ] Integrazione o esempio di integrazione con devise
 
 
 
