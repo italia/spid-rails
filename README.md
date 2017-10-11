@@ -1,4 +1,4 @@
-# spid-rails alfa 0.1
+# spid-rails 0.1.0
 Autenticazione SPID per Ruby on Rails.
 La gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
