@@ -1,6 +1,6 @@
 # spid-rails 0.1.0
-Autenticazione SPID per Ruby on Rails.
-La gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
+Autenticazione SPID per Ruby on Rails.  
+Questa gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
 ## Come si usa?
 spid-rails è un gemma-engine che imposta il lavoro all'interno della path /spid/.
