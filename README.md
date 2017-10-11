@@ -1,15 +1,11 @@
-# spid-rails
-SPID authentication for Ruby on Rails
-
-# Lavoro effettuato
-
-- Creazione gemma
-- Applicazione demo funzionante con login tramite il server test idp.spid.gov.it
-repository: https://github.com/rubynetti/rubynetti-rails
+# spid-rails alfa 0.1
+Autenticazione SPID per Ruby on Rails.
+La gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
 ## Come si usa?
 spid-rails è un gemma-engine che imposta il lavoro all'interno della path /spid/.
-Una volta installata la gemma sarà possibile gestire serenamente il login tramite spid.
+
+Una volta installata la gemma sarà possibile gestire il login tramite spid.
 
 
 ## Installazione
@@ -24,11 +20,23 @@ Eseguire
 ```bash
 $ bundle
 ```
-
 <!-- Or install it yourself as:
 ```bash
 $ gem install spid-rails
 ``` -->
+
+# Cosa c'è e cosa manca
+- [x] Creazione gemma
+- [x] Applicazione demo funzionante con login tramite il server test idp.spid.gov.it
+repository: https://github.com/rubynetti/rubynetti-rails
+- [x] Login tramite redirect
+- [ ] Login tramite post
+- [ ] Sistema di testing automatico
+- [ ] Sistema di configurazione
+- [ ] Test con certificati e server di identificazione (esempio poste)
+
+
+
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
