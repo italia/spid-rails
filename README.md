@@ -31,11 +31,14 @@ $ gem install spid-rails
 repository: https://github.com/rubynetti/rubynetti-rails
 - [x] Login tramite redirect
 - [ ] Login tramite post
-- [ ] Sistema di testing automatico
-- [ ] Sistema di configurazione
+- [ ] Sistema di testing automatico - WIP
+- [ ] Sistema di configurazione - WIP
 - [ ] Test con certificati e server di identificazione (esempio poste)
 - [ ] Integrazione con omniauth
 - [ ] Integrazione o esempio di integrazione con devise
+
+Qui è possibile seguire il progress dei lavori:
+https://github.com/rubynetti/spid-rails/projects/1
 
 
 
