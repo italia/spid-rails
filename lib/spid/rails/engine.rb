@@ -1,4 +1,5 @@
 require 'haml-rails'
+require 'onelogin/ruby-saml'
 
 module Spid
   module Rails
