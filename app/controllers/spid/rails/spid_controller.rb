@@ -30,7 +30,7 @@ class Spid::Rails::SpidController < ApplicationController
 
   def idp_attributes
     parser = OneLogin::RubySaml::IdpMetadataParser.new
-    parser.parse_remote_to_hash idp_xml(:gov),
+    parser.parse_remote_to_hash idp_xml(params[:idp]),
                                 true,
                                 sso_binding: bindings(params[:request_types])
   end
@@ -64,14 +64,14 @@ class Spid::Rails::SpidController < ApplicationController
     "https://www.spid.gov.it/SpidL#{params[:spid_level] || 1}"
   end
 
-  def idp_xml idp = :test
+  def idp_xml idp
     case idp
-    when :gov
-      main_app.root_url + 'metadata-idp-gov.xml'
-    when :poste
-      'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml'
     when :test
       main_app.root_url + 'metadata-idp-test-local.xml'
+    when :poste
+      'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml'
+    else
+      main_app.root_url + 'metadata-idp-gov.xml'
     end
   end
 
