@@ -32,7 +32,7 @@ class Spid::Rails::SpidController < ApplicationController
     parser = OneLogin::RubySaml::IdpMetadataParser.new
     parser.parse_remote_to_hash idp_xml(:gov),
                                 true,
-                                sso_binding: [binding(:redirect)]
+                                sso_binding: bindings(params[:request_types])
   end
 
   def sso_attributes
@@ -48,12 +48,13 @@ class Spid::Rails::SpidController < ApplicationController
     slo_attributes
   end
 
-  def binding request_type
-    formatted_type = case request_type
-    when :post;     'POST'
-    when :redirect; 'Redirect'
+  def bindings request_types
+    request_types ||= ['redirect']
+    formatted_type = request_types.map do |type|
+      type = 'POST' if type == 'post'
+      type = 'Redirect' if type == 'redirect'
+      "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{type}"
     end
-    "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{formatted_type}"
   end
 
   # Impost il livello di autorizzazione
