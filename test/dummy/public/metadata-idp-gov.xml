@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_2487e8a5-3a05-488c-8fa6-fe32b8ae96c8" entityID="idp.spid.gov.it"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+<ds:Reference URI="#_2487e8a5-3a05-488c-8fa6-fe32b8ae96c8">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>ErnqM0wf3mfwuvgQgDbNejUrabkTL3zij1mbX+kg680=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+iAN7e09zuDa7KHgAqyGlka2VZRn8I9h0PeJuhJFIJhhd1R9IIDMg+WL0oyuT3OD9Fnz6leFpDJDG
+QbvRTecLp5RJYF2C8sgzC55+vkOcd2pygUuf9jZQ8qY4P0GI68j5d9eYg0Pw4DhymQr+GBDMVPwJ
+XisRE+kVk88jmQd9frgn4en+PunV+cYKTNGL3o+QhVU+ehlolX0IyVLVsriXn+tYXag8unalUMAz
+HFdKdaxHrM4xYYynuwhHoKtDZ3bMttDVHUaWn6BBo5dF01/xmGiUVRMtk27QziqZSl1f1cFQJJsb
+0qr6cIw2t8Visi2nOGviG/AAM66J7DjqpLEq0Q==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+qmyeBE32Yow6wZUbg9KZQfHGEQLk8ktrESwJS2JXM3Lnqk94ob92HVKeGyImrU8KqEmPy1YrR4YF
+sn5+lAcqp+Pi8Sp/c5lmyADThrJGTDPlXRrq57pofYEN0v+iaPh8mKjHZfoxyTU6WcWVR+65eeTe
+dAx/qM8DSkRF6P0aJw4skQUdz1k+C2CoZe/T4ccYHDz9I410fJJsFukgcBuujmAwHw1d2EUcN+FZ
+7vHKGEBQnLxqFTsn8YcWqU+2r3QenD1pZajMBCzosEeW5j7X7LDrLbDViUysGcLsm5wWfEpoFxF+
+xl41egyjHAT2NdhanNwiuEMfdKAQC5bHaiT9gQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+<ds:X509Data>
+<ds:X509Certificate>
+MIID1zCCAr+gAwIBAgIJALGDd67mvPi0MA0GCSqGSIb3DQEBCwUAMIGBMQswCQYDVQQGEwJJVDEN
+MAsGA1UECAwEUm9tZTENMAsGA1UEBwwEUm9tZTENMAsGA1UECgwEQWdJRDENMAsGA1UECwwEU3Bp
+ZDETMBEGA1UEAwwKKnVtYnJvcy5pdDEhMB8GCSqGSIb3DQEJARYScm9zaW5pQGFnaWQuZ292Lml0
+MB4XDTE3MTAwNjIyMTYzNFoXDTE4MTAwNjIyMTYzNFowgYExCzAJBgNVBAYTAklUMQ0wCwYDVQQI
+DARSb21lMQ0wCwYDVQQHDARSb21lMQ0wCwYDVQQKDARBZ0lEMQ0wCwYDVQQLDARTcGlkMRMwEQYD
+VQQDDAoqdW1icm9zLml0MSEwHwYJKoZIhvcNAQkBFhJyb3NpbmlAYWdpZC5nb3YuaXQwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqbJ4ETfZijDrBlRuD0plB8cYRAuTyS2sRLAlLYlcz
+cueqT3ihv3YdUp4bIiatTwqoSY/LVitHhgWyfn6UByqn4+LxKn9zmWbIANOGskZMM+VdGurnumh9
+gQ3S/6Jo+HyYqMdl+jHJNTpZxZVH7rl55N50DH+ozwNKREXo/RonDiyRBR3PWT4LYKhl79Phxxgc
+PP0jjXR8kmwW6SBwG66OYDAfDV3YRRw34Vnu8coYQFCcvGoVOyfxhxapT7avdB6cPWllqMwELOiw
+R5bmPtfssOstsNWJTKwZwuybnBZ8SmgXEX7GXjV6DKMcBPY12Fqc3CK4Qx90oBALlsdqJP2BAgMB
+AAGjUDBOMB0GA1UdDgQWBBQzC66q+tIOrtTAOXaLQKI0hhbpnzAfBgNVHSMEGDAWgBQzC66q+tIO
+rtTAOXaLQKI0hhbpnzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQApefjhs5RLw0dW
+9ISOU/+g5Tkz88LtRTSZd9w7l3gbVQXs2cpAuoxfnfIbCNoXeWgUKnPVd7vxjxCoovzB2N8RQL4l
+LyaP2WHM2wkR8AA/No3/Zaz+KpQP2Vn68Be2yKq4FDn4+OtJbmh93AMiNXo8fQ6erOloUgkV/rC6
+IyMg0CimohMItP2/5XvrMt5hXbK9a40BFO8OPHCfQivWSxndxVkSsvGiIN93G5UdE/7C+oU/9AmB
+MENVaXD1l6tddlpsPUyE/plMI/en6a8opABDSSQl0EUIDkd9+rfW1udkIIS7MGpLRZh8w3QPBSXb
+yI4mwsDxaZ5H490/Xd5gDi7D
+</ds:X509Certificate>
+</ds:X509Data>
+</ds:KeyInfo>
+</ds:Signature>
+  <IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data>
+          <!-- certificato di default dell'identity server, se modificato è necessario cambiarlo -->
+          <X509Certificate>MIICNTCCAZ6gAwIBAgIES343gjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJVUzELMAkGA1UE
+CAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDTALBgNVBAoMBFdTTzIxEjAQBgNVBAMMCWxv
+Y2FsaG9zdDAeFw0xMDAyMTkwNzAyMjZaFw0zNTAyMTMwNzAyMjZaMFUxCzAJBgNVBAYTAlVTMQsw
+CQYDVQQIDAJDQTEWMBQGA1UEBwwNTW91bnRhaW4gVmlldzENMAsGA1UECgwEV1NPMjESMBAGA1UE
+AwwJbG9jYWxob3N0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCUp/oV1vWc8/TkQSiAvTou
+sMzOM4asB2iltr2QKozni5aVFu818MpOLZIr8LMnTzWllJvvaA5RAAdpbECb+48FjbBe0hseUdN5
+HpwvnH/DW8ZccGvk53I6Orq7hLCv1ZHtuOCokghz/ATrhyPq+QktMfXnRS4HrKGJTzxaCcU7OQID
+AQABoxIwEDAOBgNVHQ8BAf8EBAMCBPAwDQYJKoZIhvcNAQEFBQADgYEAW5wPR7cr1LAdq+IrR44i
+QlRG5ITCZXY9hI0PygLP2rHANh+PYfTmxbuOnykNGyhM6FjFLbW2uZHQTY1jMrPprjOrmyK5sjJR
+O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.spid.gov.it:9443/samlsso" ResponseLocation="https://idp.spid.gov.it:9443/samlsso/samlsso/"/>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.spid.gov.it:9443/samlsso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.spid.gov.it:9443/samlsso"/>
+        <Attribute Name="spidCode" NameFormat="xsi:string"/>
+        <Attribute Name="name" NameFormat="xsi:string"/>
+        <Attribute Name="familyName" NameFormat="xsi:string"/>
+        <Attribute Name="placeOfBirth" NameFormat="xsi:string"/>
+        <Attribute Name="countyOfBirth" NameFormat="xsi:string"/>
+        <Attribute Name="dateOfBirth" NameFormat="xsi:string"/>
+        <Attribute Name="gender" NameFormat="xsi:string"/>
+        <Attribute Name="companyName" NameFormat="xsi:string"/>
+        <Attribute Name="registeredOffice" NameFormat="xsi:string"/>
+        <Attribute Name="fiscalNumber" NameFormat="xsi:string"/>
+        <Attribute Name="ivaCode" NameFormat="xsi:string"/>
+        <Attribute Name="idCard" NameFormat="xsi:string"/>
+        <Attribute Name="mobilePhone" NameFormat="xsi:string"/>
+        <Attribute Name="email" NameFormat="xsi:string"/>
+        <Attribute Name="address" NameFormat="xsi:string"/>
+        <Attribute Name="expirationDate" NameFormat="xsi:string"/>
+        <Attribute Name="digitalAddress" NameFormat="xsi:string"/>
+  </IDPSSODescriptor>
+  <Organization>
+    <OrganizationName xml:lang="it">SPID Test Environment</OrganizationName>
+    <OrganizationDisplayName xml:lang="it">SPID Test Environment</OrganizationDisplayName>
+    <OrganizationURL xml:lang="it">https://www.spid.gov.it</OrganizationURL>
+  </Organization>
+</EntityDescriptor>
