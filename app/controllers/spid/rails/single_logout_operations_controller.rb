@@ -4,12 +4,12 @@ class Spid::Rails::SingleLogoutOperationsController < Spid::Rails::SpidControlle
   def new
     logout_request = OneLogin::RubySaml::Logoutrequest.new()
     session[:transaction_id] = logout_request.uuid
-    redirect_to logout_request.create(saml_settings)
+    redirect_to logout_request.create(slo_settings)
   end
 
   def create
     logout_response = OneLogin::RubySaml::Logoutresponse.new(params[:SAMLResponse],
-                                                             saml_settings,
+                                                             slo_settings,
                                                              matches_request_id: session[:transaction_id])
     if logout_response.validate
       session[:index] = nil

@@ -2,47 +2,59 @@ class Spid::Rails::SpidController < ApplicationController
 
   private
 
-  def saml_settings
-    idp_settings
+  def metadata_settings
+    settings = OneLogin::RubySaml::Settings.new sp_attributes
   end
 
-  def sp_settings
-    settings = OneLogin::RubySaml::Settings.new
-    # Indirizzo del metadata del service provider: /spid/metadata.
-    settings.issuer = metadata_url
-    # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
-    settings.assertion_consumer_service_url = sso_url
-    # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
-    settings.single_logout_service_url = slo_url
-    # Richiedi firma all'IDP
-    # TODO: La firma non viene controllata
-    settings.security[:want_assertions_signed] = true
-
-    settings
+  def sso_settings
+    settings = OneLogin::RubySaml::Settings.new sso_attributes
   end
 
-  def idp_settings
+  def slo_settings
+    settings = OneLogin::RubySaml::Settings.new slo_attributes
+  end
+
+  def sp_attributes
+    {
+      # Indirizzo del metadata del service provider: /spid/metadata.
+      issuer: metadata_url,
+      # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
+      assertion_consumer_service_url: sso_url,
+      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
+      single_logout_service_url: slo_url,
+      # Richiedi firma all'IDP
+      # TODO: La firma non viene controllata
+      security: { want_assertions_signed: true }
+    }
+  end
+
+  def idp_attributes
     parser = OneLogin::RubySaml::IdpMetadataParser.new
-
-    settings = parser.parse_remote idp_xml(:gov),
-                                   true,
-                                   sso_binding: [binding(:redirect)]
-
-    settings.issuer        = metadata_url
-    settings.authn_context = authn_context
-    settings.authn_context_comparison = 'minimum'
-
-    settings.sessionindex = session[:index]
-
-    settings
+    parser.parse_remote_to_hash idp_xml(:gov),
+                                true,
+                                sso_binding: bindings(params[:request_types])
   end
 
-  def binding request_type
-    formatted_type = case request_type
-    when :post;     'POST'
-    when :redirect; 'Redirect'
+  def sso_attributes
+    sso_attributes = sp_attributes.merge(idp_attributes)
+    sso_attributes[:authn_context] = authn_context
+    sso_attributes[:authn_context_comparison] = 'minimum'
+    sso_attributes
+  end
+
+  def slo_attributes
+    slo_attributes = sso_attributes
+    slo_attributes[:sessionindex] = session[:index]
+    slo_attributes
+  end
+
+  def bindings request_types
+    request_types ||= ['redirect']
+    formatted_type = request_types.map do |type|
+      type = 'POST' if type == 'post'
+      type = 'Redirect' if type == 'redirect'
+      "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{type}"
     end
-    "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{formatted_type}"
   end
 
   # Impost il livello di autorizzazione

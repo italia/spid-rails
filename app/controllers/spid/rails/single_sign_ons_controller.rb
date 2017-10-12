@@ -3,14 +3,13 @@ class Spid::Rails::SingleSignOnsController < Spid::Rails::SpidController
 
   def new
     request = OneLogin::RubySaml::Authrequest.new
-    output = request.create(saml_settings)
+    output = request.create(sso_settings)
     redirect_to output
   end
 
   def create
-    response = OneLogin::RubySaml::Response.new(params[:SAMLResponse],
-                                                skip_recipient: true)
-    response.settings = saml_settings
+    response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
+    response.settings = sso_settings
     if response.is_valid?
       session[:index] = response.sessionindex
       redirect_to main_app.welcome_path, notice: 'Utente correttamente loggato'
