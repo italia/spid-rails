@@ -1,3 +1,5 @@
+require 'haml-rails'
+
 module Spid
   module Rails
     class Engine < ::Rails::Engine

@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.1.4"
   s.add_dependency "ruby-saml", "1.5.0"
+  s.add_dependency "haml-rails"
 
   s.add_development_dependency "sqlite3"
 end
