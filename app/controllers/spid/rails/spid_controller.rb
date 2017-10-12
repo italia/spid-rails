@@ -2,35 +2,30 @@ class Spid::Rails::SpidController < ApplicationController
 
   private
 
-  def saml_settings
-    idp_settings
+  def metadata_settings
+    settings = OneLogin::RubySaml::Settings.new sp_attributes
   end
 
-  def sp_settings
-    settings = OneLogin::RubySaml::Settings.new sp_attributes
+  def sso_settings
+    settings = OneLogin::RubySaml::Settings.new sso_attributes
+  end
+
+  def slo_settings
+    settings = OneLogin::RubySaml::Settings.new slo_attributes
   end
 
   def sp_attributes
     {
       # Indirizzo del metadata del service provider: /spid/metadata.
-      issuer: metadata_url
+      issuer: metadata_url,
       # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
-      assertion_consumer_service_url: sso_url
+      assertion_consumer_service_url: sso_url,
       # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
-      single_logout_service_url: = slo_url
+      single_logout_service_url: slo_url,
       # Richiedi firma all'IDP
       # TODO: La firma non viene controllata
-      security[:want_assertions_signed] => true
+      security: { want_assertions_signed: true }
     }
-  end
-
-  def idp_settings
-    settings = OneLogin::RubySaml::Settings.new idp_attributes.merge(sp_attributes)
-    settings.authn_context = authn_context
-    settings.authn_context_comparison = 'minimum'
-
-    settings.sessionindex = session[:index]
-    settings
   end
 
   def idp_attributes
@@ -38,6 +33,19 @@ class Spid::Rails::SpidController < ApplicationController
     parser.parse_remote_to_hash idp_xml(:gov),
                                 true,
                                 sso_binding: [binding(:redirect)]
+  end
+
+  def sso_attributes
+    sso_attributes = sp_attributes.merge(idp_attributes)
+    sso_attributes[:authn_context] = authn_context
+    sso_attributes[:authn_context_comparison] = 'minimum'
+    sso_attributes
+  end
+
+  def slo_attributes
+    slo_attributes = sso_attributes
+    slo_attributes[:sessionindex] = session[:index]
+    slo_attributes
   end
 
   def binding request_type
