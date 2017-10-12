@@ -1,0 +1,4 @@
+
+*.log
+test/dummy/db/test.sqlite3
+test/dummy/tmp/*

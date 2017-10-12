@@ -1,0 +1,8 @@
+- if flash[:notice].present?
+  .alert.alert-success= flash[:notice]
+.container
+  .row
+    .col-sm-12
+      %h1 Rails - Spid
+      = link_to 'Entra con SPID', spid_rails.new_sso_path, class: 'btn btn-primary'
+      = link_to 'Esci', spid_rails.new_slo_path, class: 'btn btn-primary'
