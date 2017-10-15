@@ -33,7 +33,7 @@ class Spid::Rails::SpidController < ApplicationController
       issuer: metadata_url,
       # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
       assertion_consumer_service_url: sso_url,
-      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
+      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (defa  ult-binding: Redirect).
       single_logout_service_url: slo_url,
       # Richiedi firma all'IDP
       # TODO: Settaggi security

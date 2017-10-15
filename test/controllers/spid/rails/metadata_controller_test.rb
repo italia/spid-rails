@@ -7,7 +7,7 @@ module Spid::Rails
     include Engine.routes.url_helpers
 
     setup do
-      # TODO: test app don't start, using dummy
+      # TODO: rails server start should not be needed
       metadata = open("http://localhost:3000/spid/metadata")
       @metadata = Nokogiri::XML(metadata)
       @namespaces = Spid::Rails::Metadata.xml_namespaces
