@@ -11,8 +11,8 @@ module Spid::Rails
       metadata = open("http://localhost:3000/spid/metadata")
       @metadata = Nokogiri::XML(metadata)
       @namespaces = Spid::Rails::Metadata.xml_namespaces
-      @allowed_signature_algorithmns = Spid::Rails::Certificate.signature_algorithms
-      @allowed_digest_algorithmns = Spid::Rails::Certificate.digest_algorithmns
+      @allowed_signature_algorithms = Spid::Rails::Certificate.signature_algorithms
+      @allowed_digest_algorithms = Spid::Rails::Certificate.digest_algorithms
     end
 
     test "get metadata url" do
@@ -48,13 +48,13 @@ module Spid::Rails
       signature_method_node = @metadata.at_xpath("//ds:Signature//ds:SignatureMethod",
                                                   @namespaces)
       algorithm = signature_method_node.attribute('Algorithm').value
-      assert_includes @allowed_signature_algorithmns, algorithm
+      assert_includes @allowed_signature_algorithms, algorithm
 
 
       signature_digest_node = @metadata.at_xpath("//ds:Signature//ds:DigestMethod",
                                                   @namespaces)
       algorithm = signature_digest_node.attribute('Algorithm').value
-      assert_includes @allowed_digest_algorithmns, algorithm
+      assert_includes @allowed_digest_algorithms, algorithm
     end
 
     test 'conformità certificato' do

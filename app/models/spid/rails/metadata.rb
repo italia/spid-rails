@@ -4,8 +4,8 @@ module Spid
     class Metadata
       attr_accessor :settings
 
-      def initialize **settings
-        @settings = settings
+      def initialize **kwargs
+        @settings = Spid::Rails::Settings.new(kwargs).to_hash
       end
 
       def valid?
