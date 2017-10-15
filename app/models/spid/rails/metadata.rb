@@ -5,12 +5,41 @@ module Spid
       attr_accessor :settings
 
       def initialize **kwargs
-        @settings = Spid::Rails::Settings.new(kwargs).to_hash
+        spid_settings = Spid::Rails::Settings.new(kwargs)
+        @settings = spid_settings.to_hash
       end
 
       def valid?
         raise 'EntityID deve essere presente (impostare issuer)' if settings[:issuer].blank?
+        raise 'Signature deve essere presente (impostare private_key)' if settings[:private_key].blank?
+        raise 'Signature deve essere presente (impostare certificate)' if settings[:certificate].blank?
+        validate_signature_encryption
+        validate_digest_encryption
+        validate_key_size
+
         true
+      end
+
+      def validate_signature_encryption
+        signature_algorithms = Spid::Rails::Certificate.signature_algorithms
+        if signature_algorithms.exclude?(settings[:security][:signature_method])
+          raise 'Signature deve essere presente (impostare encryption sha a 256, 384, 512)'
+        end
+      end
+
+      def validate_digest_encryption
+        digest_algorithms = Spid::Rails::Certificate.digest_algorithms
+        if digest_algorithms.exclude?(settings[:security][:digest_method])
+          raise 'Signature deve essere presente (impostare encryption sha a 256, 384, 512)'
+        end
+      end
+
+      def validate_key_size
+        key = OpenSSL::PKey::RSA.new settings[:private_key]
+        key_size = key.n.num_bytes * 8
+        if key_size < 1024
+          raise "Signature deve essere presente (impostare una chiave di almeno a 1024 bit"
+        end
       end
 
       def save
@@ -22,8 +51,7 @@ module Spid
       end
 
       def to_xml
-        save if @to_xml.blank?
-        @to_xml
+        save and @to_xml
       end
 
       def self.create **settings
