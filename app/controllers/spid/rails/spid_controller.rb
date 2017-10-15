@@ -15,6 +15,19 @@ class Spid::Rails::SpidController < ApplicationController
   end
 
   def sp_attributes
+    # TODO: isolare e verificare senso ogni passaggio
+    # TODO: mettere sotto test RSA maggiore 1024
+    key = OpenSSL::PKey::RSA.new 2048
+    name = OpenSSL::X509::Name.parse 'CN=nobody/DC=example'
+    cert = OpenSSL::X509::Certificate.new
+    cert.version = 2
+    cert.serial = 0
+    cert.not_before = Time.now
+    cert.not_after = Time.now + 3600
+    cert.public_key = key.public_key
+    cert.subject = name
+    cert.issuer = name
+    cert.sign key, OpenSSL::Digest::SHA256.new
     {
       # Indirizzo del metadata del service provider: /spid/metadata.
       issuer: metadata_url,
@@ -23,8 +36,14 @@ class Spid::Rails::SpidController < ApplicationController
       # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
       single_logout_service_url: slo_url,
       # Richiedi firma all'IDP
-      # TODO: La firma non viene controllata
-      security: { want_assertions_signed: true }
+      # TODO: Settaggi security
+
+      security: { metadata_signed: true,
+      digest_method: XMLSecurity::Document::SHA256,
+      signature_method: XMLSecurity::Document::RSA_SHA256,
+      want_assertions_signed: true },
+      private_key: key.to_pem,
+      certificate: cert.to_pem
     }
   end
 
