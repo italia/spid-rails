@@ -23,7 +23,6 @@ module Spid
           issuer: issuer,
           assertion_consumer_service_url: sso_url,
           single_logout_service_url: slo_url,
-          # TODO: TUTTO IN CHIAROOOOOOOOOOOO AHAHAHAHAAAAAAAAAH
           private_key: File.read("#{keys_path}/private_key.pem"),
           certificate: File.read("#{keys_path}/certificate.pem"),
           security: security
