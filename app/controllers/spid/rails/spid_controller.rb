@@ -6,7 +6,7 @@ class Spid::Rails::SpidController < ApplicationController
     {
       metadata_url: metadata_url,
       sso_url: sso_url, slo_url: slo_url,
-      keys_path: 'lib/.keys/',
+      keys_path: Rails.root + 'lib/.keys/',
       sha: 256
     }
   end
