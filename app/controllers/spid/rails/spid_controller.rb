@@ -3,7 +3,12 @@ class Spid::Rails::SpidController < ApplicationController
   private
 
   def metadata_settings
-    settings = OneLogin::RubySaml::Settings.new sp_attributes
+    {
+      metadata_url: metadata_url,
+      sso_url: sso_url, slo_url: slo_url,
+      keys_path: Rails.root + 'lib/.keys/',
+      sha: 256
+    }
   end
 
   def sso_settings
@@ -20,11 +25,13 @@ class Spid::Rails::SpidController < ApplicationController
       issuer: metadata_url,
       # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
       assertion_consumer_service_url: sso_url,
-      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
+      # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (defa  ult-binding: Redirect).
       single_logout_service_url: slo_url,
-      # Richiedi firma all'IDP
-      # TODO: La firma non viene controllata
-      security: { want_assertions_signed: true }
+
+
+
+      private_key: key.to_pem,
+      certificate: cert.to_pem
     }
   end
 
