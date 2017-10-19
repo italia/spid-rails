@@ -5,7 +5,7 @@ module Spid
       attr_accessor :settings
 
       def initialize **kwargs
-        spid_settings = Spid::Rails::Settings.new(kwargs)
+        spid_settings = Spid::Rails::Settings::Metadata.new(kwargs)
         @settings = spid_settings.to_hash
       end
 

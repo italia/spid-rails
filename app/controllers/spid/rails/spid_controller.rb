@@ -12,6 +12,18 @@ class Spid::Rails::SpidController < ApplicationController
   end
 
   def sso_settings
+    {
+      metadata_url: metadata_url,
+      sso_url: sso_url, slo_url: slo_url,
+      keys_path: Rails.root + 'lib/.keys/',
+      sha: 256,
+      idp:  main_app.root_url + 'metadata-idp-gov.xml',
+      bindings: [:redirect],
+      spid_level: 1
+    }
+  end
+
+  def sso_settings_old
     settings = OneLogin::RubySaml::Settings.new sso_attributes
   end
 
@@ -30,8 +42,8 @@ class Spid::Rails::SpidController < ApplicationController
 
 
 
-      private_key: key.to_pem,
-      certificate: cert.to_pem
+      private_key: Rails.root + 'lib/.keys/private_key.pem',
+      certificate: Rails.root + 'lib/.keys/private_key.pem'
     }
   end
 

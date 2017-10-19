@@ -2,14 +2,13 @@ class Spid::Rails::SingleSignOnsController < Spid::Rails::SpidController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
-    request = OneLogin::RubySaml::Authrequest.new
-    output = request.create(sso_settings)
-    redirect_to output
+    request = Spid::Rails::Request.new(sso_settings)
+    redirect_to request.to_saml
   end
 
   def create
     response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
-    response.settings = sso_settings
+    response.settings = sso_settings_old
     if response.is_valid?
       session[:index] = response.sessionindex
       redirect_to main_app.welcome_path, notice: 'Utente correttamente loggato'
