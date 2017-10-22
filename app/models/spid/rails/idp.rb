@@ -3,7 +3,7 @@ module Spid
 
     class Idp
 
-      # TODO rifare tutto
+      # TODO rifare tutto - usare parse:to_ash senza remote
       def self.metadata_urls idp
         case idp
         when :test

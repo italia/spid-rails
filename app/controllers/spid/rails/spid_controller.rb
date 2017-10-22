@@ -5,7 +5,8 @@ class Spid::Rails::SpidController < ApplicationController
   def metadata_settings
     {
       metadata_url: metadata_url,
-      sso_url: sso_url, slo_url: slo_url,
+      sso_url: sso_url,
+      slo_url: slo_url,
       keys_path: Rails.root + 'lib/.keys/',
       sha: 256
     }
@@ -13,8 +14,10 @@ class Spid::Rails::SpidController < ApplicationController
 
   def sso_settings
     {
-      metadata_url: metadata_url,
-      sso_url: sso_url, slo_url: slo_url,
+      host: main_app.root_url.chop,
+      metadata_path: metadata_path,
+      sso_path: sso_path,
+      slo_path: slo_path,
       keys_path: Rails.root + 'lib/.keys/',
       sha: 256,
       idp:  main_app.root_url + 'metadata-idp-gov.xml',
@@ -92,6 +95,12 @@ class Spid::Rails::SpidController < ApplicationController
     else
       main_app.root_url + 'metadata-idp-gov.xml'
     end
+  end
+
+  def saml_params
+    saml_params = params.require(:spid).permit(:idp)
+    saml_params[:host] = main_app.root_url
+    saml_params
   end
 
 end

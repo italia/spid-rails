@@ -2,26 +2,40 @@ module Spid
   module Rails
 
     class Settings
-      attr_accessor :issuer
-      attr_accessor :metadata_url
-      attr_accessor :sso_url
-      attr_accessor :slo_url
+
+
+      attr_accessor :host
+
+      attr_accessor :metadata_path
+
+      attr_accessor :sso_path
+
+      attr_accessor :slo_path
+
       attr_accessor :keys_path
+
       attr_accessor :sha
+
       attr_accessor :idp
+
       attr_accessor :bindings
+
       attr_accessor :spid_level
 
+
       # TODO: defaults
-      def initialize **kwargs
-        @issuer = kwargs[:metadata_url]
-        @sso_url = kwargs[:sso_url]
-        @slo_url = kwargs[:slo_url]
-        @keys_path = kwargs[:keys_path]
-        @sha = kwargs[:sha]
-        @idp = kwargs[:idp]
-        @bindings = kwargs[:bindings]
-        @spid_level = kwargs[:spid_level]
+      def initialize kwargs
+        @metadata_path  = Spid::Rails.metadata_path
+        @sso_path       = Spid::Rails.sso_path
+        @slo_path       = Spid::Rails.slo_path
+        @keys_path      = Spid::Rails.keys_path
+        @sha            = Spid::Rails.sha
+        @idp            = :gov
+        @bindings       = [:redirect]
+        @spid_level     = 1
+        kwargs.each do |k, v|
+          send("#{k}=", v)
+        end
       end
 
       def security_attributes
@@ -38,9 +52,9 @@ module Spid
 
       def sp_attributes
         {
-          issuer: issuer,
-          assertion_consumer_service_url: sso_url,
-          single_logout_service_url: slo_url,
+          issuer: host + metadata_path,
+          assertion_consumer_service_path: host + sso_path,
+          single_logout_service_path: host + slo_path,
           private_key: File.read("#{keys_path}/private_key.pem"),
           certificate: File.read("#{keys_path}/certificate.pem"),
           security: security_attributes
@@ -49,7 +63,7 @@ module Spid
 
       def idp_attributes
         parser = OneLogin::RubySaml::IdpMetadataParser.new
-        parser.parse_remote_to_hash @idp,
+        parser.parse_remote_to_hash Idp.metadata_urls(@idp),
                                     true,
                                     sso_binding: saml_bindings(@bindings)
       end
