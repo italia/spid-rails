@@ -24,7 +24,7 @@ module Spid
 
 
       # TODO: defaults
-      def initialize kwargs
+      def initialize spid_params
         @metadata_path  = Spid::Rails.app_metadata_path
         @sso_path       = Spid::Rails.app_sso_path
         @slo_path       = Spid::Rails.app_slo_path
@@ -33,7 +33,7 @@ module Spid
         @idp            = :gov
         @bindings       = [:redirect]
         @spid_level     = 1
-        kwargs.each do |k, v|
+        spid_params.each do |k, v|
           send("#{k}=", v)
         end
       end

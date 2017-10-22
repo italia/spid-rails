@@ -4,8 +4,8 @@ module Spid
     class Metadata
       attr_accessor :settings
 
-      def initialize **kwargs
-        spid_settings = Spid::Rails::Settings::Metadata.new(kwargs)
+      def initialize spid_params
+        spid_settings = Spid::Rails::Settings::Metadata.new(spid_params)
         @settings = spid_settings.to_hash
       end
 

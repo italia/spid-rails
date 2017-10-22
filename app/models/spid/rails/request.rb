@@ -5,8 +5,8 @@ module Spid
     class Request
       attr_accessor :settings
 
-      def initialize **kwargs
-        spid_settings = Spid::Rails::Settings::Request.new(kwargs)
+      def initialize spid_params
+        spid_settings = Spid::Rails::Settings::Request.new(spid_params)
         @settings = spid_settings.to_hash
       end
 

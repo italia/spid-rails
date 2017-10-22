@@ -97,10 +97,4 @@ class Spid::Rails::SpidController < ApplicationController
     end
   end
 
-  def saml_params
-    saml_params = params.require(:spid).permit(:idp)
-    saml_params[:host] = main_app.root_url
-    saml_params
-  end
-
 end
