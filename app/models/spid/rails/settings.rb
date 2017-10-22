@@ -25,9 +25,9 @@ module Spid
 
       # TODO: defaults
       def initialize kwargs
-        @metadata_path  = Spid::Rails.metadata_path
-        @sso_path       = Spid::Rails.sso_path
-        @slo_path       = Spid::Rails.slo_path
+        @metadata_path  = Spid::Rails.app_metadata_path
+        @sso_path       = Spid::Rails.app_sso_path
+        @slo_path       = Spid::Rails.app_slo_path
         @keys_path      = Spid::Rails.keys_path
         @sha            = Spid::Rails.sha
         @idp            = :gov

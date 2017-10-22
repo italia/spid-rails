@@ -3,11 +3,11 @@ module Spid
 
     class Idp
 
-      # TODO rifare tutto - usare parse:to_ash senza remote
+      # TODO rifare tutto
       def self.metadata_urls idp
         case idp
         when :test
-          # main_app.root_url + 'metadata-idp-test-local.xml'
+          'http://localhost:3000/metadata-idp-test-local.xml'
         when :poste
           'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml'
         else

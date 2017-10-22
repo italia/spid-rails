@@ -2,7 +2,7 @@ class Spid::Rails::SingleSignOnsController < Spid::Rails::SpidController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
-    request = Spid::Rails::Request.new(sso_settings)
+    request = Spid::Rails::Request.new(host: main_app.root_url)
     redirect_to request.to_saml
   end
 

@@ -14,13 +14,13 @@ class Spid::Rails::SpidController < ApplicationController
 
   def sso_settings
     {
-      host: main_app.root_url.chop,
+      host: main_app.root_url,
       metadata_path: metadata_path,
       sso_path: sso_path,
       slo_path: slo_path,
       keys_path: Rails.root + 'lib/.keys/',
       sha: 256,
-      idp:  main_app.root_url + 'metadata-idp-gov.xml',
+      idp:  :gov,
       bindings: [:redirect],
       spid_level: 1
     }

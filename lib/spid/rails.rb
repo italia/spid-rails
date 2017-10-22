@@ -28,5 +28,17 @@ module Spid
     mattr_accessor :sha
     @@sha = 256
 
+    def self.app_metadata_path
+      "#{mount_point}/#{@@metadata_path}"
+    end
+
+    def self.app_sso_path
+      "#{mount_point}/#{@@sso_path}"
+    end
+
+    def self.app_slo_path
+      "#{mount_point}/#{@@slo_path}"
+    end
+
   end
 end
