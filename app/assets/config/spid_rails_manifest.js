@@ -1,2 +1,2 @@
-//= link_directory ../javascripts/spid/rails .js
-//= link_directory ../stylesheets/spid/rails .css
+//= link_directory ../javascripts/spid_rails .js
+//= link_directory ../stylesheets/spid_rails .css

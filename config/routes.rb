@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  mount Spid::Rails::Engine => Spid::Rails.mount_point
+  mount SpidRails::Engine => SpidRails.mount_point
 end
 
-Spid::Rails::Engine.routes.draw do
+SpidRails::Engine.routes.draw do
   resource :metadata, only: :show,
-            path: Spid::Rails.metadata_path
+            path: SpidRails.metadata_path
   resource :sso, only: [:new, :create], controller: :single_sign_ons,
-            path: Spid::Rails.sso_path
+            path: SpidRails.sso_path
   resource :slo, only: [:new, :create], controller: :single_logout_operations,
-            path: Spid::Rails.slo_path
+            path: SpidRails.slo_path
 end
