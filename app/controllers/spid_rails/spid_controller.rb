@@ -52,9 +52,8 @@ class SpidRails::SpidController < ApplicationController
 
   def idp_attributes
     parser = OneLogin::RubySaml::IdpMetadataParser.new
-    parser.parse_remote_to_hash idp_xml(params[:idp]),
-                                true,
-                                sso_binding: bindings(params[:request_types])
+    parser.parse_to_hash File.open(Rails.root+'public/metadata-idp-gov.xml'),
+                         sso_binding: bindings(params[:request_types])
   end
 
   def sso_attributes
