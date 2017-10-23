@@ -17,13 +17,18 @@ gem 'spid-rails', git: 'git@github.com:rubynetti/spid-rails.git'
 ```
 
 Eseguire
+
 ```bash
 $ bundle
 ```
-<!-- Or install it yourself as:
+## Configurazione
+
+Per creare il file di configurazione (config/initializers/spid_rails.rb):
+
 ```bash
-$ gem install spid-rails
-``` -->
+$ rails g spid_rails:config
+```
+
 
 # Cosa c'è e cosa manca
 - [x] Creazione gemma
@@ -32,7 +37,7 @@ repository: https://github.com/rubynetti/rubynetti-rails
 - [x] Login tramite redirect
 - [ ] Login tramite post
 - [ ] Sistema di testing automatico - WIP
-- [ ] Sistema di configurazione - WIP
+- [X] Sistema di configurazione
 - [ ] Test con certificati e server di identificazione (esempio poste)
 - [ ] Integrazione con omniauth
 - [ ] Integrazione o esempio di integrazione con devise

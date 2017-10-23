@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Spid::Rails
+module SpidRails
 
   # Testa conformità a regole tecniche disponibili a
   # http://spid-regole-tecniche.readthedocs.io/en/latest/regole-tecniche-sp.html#metadata
@@ -9,9 +9,9 @@ module Spid::Rails
 
     setup do
       @routes = Engine.routes
-      @namespaces = Spid::Rails::Metadata.xml_namespaces
-      @allowed_signature_algorithms = Spid::Rails::Certificate.signature_algorithms
-      @allowed_digest_algorithms = Spid::Rails::Certificate.digest_algorithms
+      @namespaces = SpidRails::Metadata.xml_namespaces
+      @allowed_signature_algorithms = SpidRails::Certificate.signature_algorithms
+      @allowed_digest_algorithms = SpidRails::Certificate.digest_algorithms
       get metadata_url
       @metadata = css_select('*')
     end

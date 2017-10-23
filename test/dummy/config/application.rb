@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "spid/rails"
+require "spid_rails"
 
 module Dummy
   class Application < Rails::Application
@@ -15,4 +15,3 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-
