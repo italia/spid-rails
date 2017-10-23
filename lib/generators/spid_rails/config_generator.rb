@@ -9,7 +9,7 @@ module SpidRails
       desc "Crea il file di configurazione di spid (config/initializers/rumby_saml.rb)."
 
       def create_initializer_file
-        template "spid_rails.rb", "config/initializers/spid_rails.rb"
+        template "spid_rails.rb", "./config/initializers/spid_rails.rb"
       end
 
     end

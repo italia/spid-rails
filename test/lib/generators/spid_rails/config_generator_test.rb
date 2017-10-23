@@ -4,7 +4,7 @@ require 'generators/spid_rails/config_generator'
 module SpidRails::Generators
   class ConfigGeneratorTest < Rails::Generators::TestCase
     tests ConfigGenerator
-    destination Rails.root.join('../../../tmp/generators')
+    destination Rails.root.join('../tmp/generators')
     setup :prepare_destination
 
     test "generator create file without errors" do
