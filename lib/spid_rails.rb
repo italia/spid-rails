@@ -20,6 +20,7 @@ module SpidRails
 
   # Percorso relativo alla root dell'app
   # al quale reperire la coppia chiave privata - certificato
+  # TODO: impostare default a '~/.spid_keys'
   mattr_accessor :keys_path
   @@keys_path = 'lib/.keys/'
 
