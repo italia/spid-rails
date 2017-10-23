@@ -3,7 +3,7 @@ Autenticazione SPID per Ruby on Rails.
 Questa gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
 ## Come si usa?
-spid-rails è un gemma-engine che imposta il lavoro all'interno della path /spid/.
+spid-rails è un gemma che imposta il lavoro all'interno della url _spid_ (ex: http://example.com/spid/).
 
 Una volta installata la gemma sarà possibile gestire il login tramite spid.
 
