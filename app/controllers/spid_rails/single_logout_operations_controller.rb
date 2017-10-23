@@ -15,7 +15,7 @@ class SpidRails::SingleLogoutOperationsController < SpidRails::SpidController
       session[:index] = nil
       redirect_to main_app.welcome_path, notice: 'Utente correttamente sloggato'
     else
-      render plain: responde.inspect
+      render plain: response.inspect
     end
   end
 

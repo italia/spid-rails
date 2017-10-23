@@ -15,7 +15,7 @@ module SpidRails
     end
 
     test "get create" do
-      post sso_url('SAMLResponse' => File.read('test/templates/response'))
+      post sso_url('SAMLResponse' => File.read('test/templates/authn_response'))
       assert_response :ok
     end
 
