@@ -1,7 +1,13 @@
 module SpidRails
-
+# TODO: verificare presenza bindings in metadata_urls
+# restituire true false da save? verificare standards
   class Metadata
     attr_accessor :settings
+
+    def self.create **settings
+      obj = self.new(**settings)
+      obj.save if obj.valid?
+    end
 
     def initialize spid_params
       spid_settings = SpidRails::Settings::Metadata.new(spid_params)
@@ -53,10 +59,6 @@ module SpidRails
       save and @to_xml
     end
 
-    def self.create **settings
-      obj = self.new(**settings)
-      obj.save if obj.valid?
-    end
 
     def self.xml_namespaces
       {
