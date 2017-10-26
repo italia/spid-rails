@@ -4,11 +4,12 @@ class SpidRails::SingleSignOnsController < SpidRails::SpidController
   def new
     request = SpidRails::Request.new(sso_params)
     redirect_to request.to_saml
+    session[:sso_params] = sso_params
   end
 
   def create
     response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
-    response.settings = sso_settings_old
+    response.settings = sso_settings
     if response.is_valid?
       session[:index] = response.sessionindex
       redirect_to main_app.welcome_path, notice: 'Utente correttamente loggato'
