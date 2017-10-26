@@ -2,9 +2,9 @@ module SpidRails
 
   class Idp
 
-    # TODO rifare tutto
+    # TODO rifare tutto con hash
     def self.metadata_urls idp
-      case idp
+      case idp.to_s
       when 'test'
         'http://localhost:3000/metadata-idp-test-local.xml'
       when 'poste'
@@ -16,5 +16,5 @@ module SpidRails
     end
 
   end
-  
+
 end

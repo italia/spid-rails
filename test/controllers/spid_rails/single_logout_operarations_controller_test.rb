@@ -2,7 +2,7 @@ require 'test_helper'
 
 module SpidRails
 
-  class SingleLogoutsControllerTest < ActionDispatch::IntegrationTest
+  class SingleLogoutOperationsControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 
     setup do

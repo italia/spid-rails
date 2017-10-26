@@ -10,7 +10,7 @@ module SpidRails
     end
 
     test "get new" do
-      get new_sso_url(sso: { idp: :gov } )
+      get new_sso_url(sso: { idp: :poste } )
       assert_response :redirect
     end
 
