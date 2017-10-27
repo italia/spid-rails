@@ -62,7 +62,7 @@ module SpidRails
 
     def idp_attributes
       parser = OneLogin::RubySaml::IdpMetadataParser.new
-      parser.parse_remote_to_hash Idp.metadata_urls(@idp),
+      parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
                                   true,
                                   sso_binding: saml_bindings(@bindings)
     end
