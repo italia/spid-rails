@@ -73,6 +73,10 @@ module SpidRails
       "https://www.spid.gov.it/SpidL#{@spid_level}"
     end
 
+    def force_authn
+      return true if @spid_level != 1
+    end
+
     def saml_bindings request_types
       formatted_type = request_types.map do |type|
         type = type.to_s
