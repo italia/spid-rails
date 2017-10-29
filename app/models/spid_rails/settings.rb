@@ -61,10 +61,11 @@ module SpidRails
     end
 
     def idp_attributes
+      idp_bindings = @bindings.map{ |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
-      parser.parse_remote_to_hash Idp.metadata_urls(@idp),
+      parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
                                   true,
-                                  sso_binding: saml_bindings(@bindings)
+                                  sso_binding: idp_bindings
     end
 
     private
@@ -73,13 +74,16 @@ module SpidRails
       "https://www.spid.gov.it/SpidL#{@spid_level}"
     end
 
-    def saml_bindings request_types
-      formatted_type = request_types.map do |type|
-        type = type.to_s
-        type = 'POST' if type == 'post'
-        type = 'Redirect' if type == 'redirect'
-        "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{type}"
-      end
+    def force_authn
+      return true if @spid_level != 1
+    end
+
+    # TODO spostare in utils
+    def self.saml_bindings
+      {
+        post: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+        redirect: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      }
     end
 
   end

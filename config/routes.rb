@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount SpidRails::Engine => SpidRails.mount_point
+  mount SpidRails::Engine, at: SpidRails.mount_point
 end
 
 SpidRails::Engine.routes.draw do
