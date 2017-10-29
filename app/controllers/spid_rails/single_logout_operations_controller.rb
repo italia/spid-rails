@@ -8,16 +8,14 @@ class SpidRails::SingleLogoutOperationsController < SpidRails::SpidController
   end
 
   def create
-    logout_response = OneLogin::RubySaml::Logoutresponse.new(params[:SAMLResponse],
-                                                             slo_settings,
-                                                             matches_request_id: session[:spid_slo_id])
-    if logout_response.validate
-      session[:sso_params] = nil
-      session[:spid_index] = nil
-      session[:spid_slo_id] = nil
-      redirect_to main_app.welcome_path, notice: 'Utente correttamente sloggato'
+    logout_response = SpidRails::SloResponse.new(params[:SAMLResponse],
+                                                session[:spid_slo_id],
+                                                slo_params)
+    if logout_response.valid?
+      session[:sso_params] = session[:spid_index] = session[:spid_slo_id] = nil
+      redirect_to main_app.root_path, notice: 'Logout utente eseguito con successo'
     else
-      render plain: response.inspect
+      redirect_to main_app.root_path, notice: 'Logout utente fallito'
     end
   end
 

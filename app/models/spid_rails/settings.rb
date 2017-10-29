@@ -24,7 +24,6 @@ module SpidRails
     attr_accessor :session_index
 
 
-    # TODO: defaults
     def initialize spid_params
       @metadata_path  = SpidRails.app_metadata_path
       @sso_path       = SpidRails.app_sso_path
