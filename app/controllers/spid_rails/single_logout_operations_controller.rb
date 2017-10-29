@@ -2,9 +2,9 @@ class SpidRails::SingleLogoutOperationsController < SpidRails::SpidController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
-    logout_request = OneLogin::RubySaml::Logoutrequest.new()
+    logout_request = SpidRails::SloRequest.new(slo_params)
+    redirect_to logout_request.to_saml
     session[:transaction_id] = logout_request.uuid
-    redirect_to logout_request.create(slo_settings)
   end
 
   def create
@@ -17,6 +17,12 @@ class SpidRails::SingleLogoutOperationsController < SpidRails::SpidController
     else
       render plain: response.inspect
     end
+  end
+
+  private
+
+  def slo_params
+    session[:sso_params].merge(session_index: session[:index])
   end
 
 end

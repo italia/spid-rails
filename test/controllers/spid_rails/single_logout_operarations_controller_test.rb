@@ -10,6 +10,7 @@ module SpidRails
     end
 
     test "get new slo" do
+      get spid_rails.new_sso_url(sso: { idp: :poste })
       get spid_rails.new_slo_url()
       assert_response :redirect
     end

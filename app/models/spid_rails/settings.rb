@@ -21,6 +21,8 @@ module SpidRails
 
     attr_accessor :spid_level
 
+    attr_accessor :session_index
+
 
     # TODO: defaults
     def initialize spid_params
