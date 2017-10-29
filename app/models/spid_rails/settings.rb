@@ -61,7 +61,7 @@ module SpidRails
     end
 
     def idp_attributes
-      idp_bindings = @bindings.map{ |b| saml_bindings[b] }
+      idp_bindings = @bindings.map{ |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
       parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
                                   true,
@@ -78,7 +78,8 @@ module SpidRails
       return true if @spid_level != 1
     end
 
-    def saml_bindings
+    # TODO spostare in utils
+    def self.saml_bindings
       {
         post: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
         redirect: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"

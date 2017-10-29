@@ -2,6 +2,7 @@ module SpidRails
 
   # TODO: rinominare SSO?
   class Request
+
     attr_accessor :settings
 
     def initialize spid_params
@@ -10,7 +11,18 @@ module SpidRails
     end
 
     def valid?
-      true
+      if settings[:idp_sso_target_url].blank?
+        raise "Destination deve essere presente (impostare idp_sso_target_url)"
+      end
+      if settings[:authn_context].last != '1' && settings[:force_authn] != true
+        raise "ForceAuthn deve essere presente per livelli di aitenticazione diversi da SPIDL1 (impostare force_authn a true)"
+      end
+      if settings[:authn_context_comparison] != 'minimum'
+        raise "AuthnContextComparison deve essere settato a 'minimum' (impostare authn_context_comparison a 'minimum')"
+      end
+      if settings[:protocol_binding] != SpidRails::Settings.saml_bindings[:post]
+        raise "Issuer deve contenere l'attributo ProtocolBinding con binding POST (impostare protocl_binding a ':post')"
+      end
     end
 
     def save
@@ -27,7 +39,7 @@ module SpidRails
 
     def self.create **settings
       obj = self.new(**settings)
-      obj.save if obj.valid?
+      obj.save
     end
 
   end
