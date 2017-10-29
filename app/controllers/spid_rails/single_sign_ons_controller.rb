@@ -11,7 +11,7 @@ class SpidRails::SingleSignOnsController < SpidRails::SpidController
     # TODO: redirect a richiesta originale
     response = SpidRails::Response.new(params[:SAMLResponse], session[:sso_params])
     if response.valid?
-      session[:index] = response.session_index
+      session[:spid_index] = response.session_index
       redirect_to main_app.root_path, notice: 'Utente autenticato con successo'
     else
       redirect_to main_app.root_path, notice: 'Autenticazione fallita'

@@ -66,7 +66,7 @@ class SpidRails::SpidController < ApplicationController
 
   def slo_attributes
     slo_attributes = sso_attributes
-    slo_attributes[:sessionindex] = session[:index]
+    slo_attributes[:sessionindex] = session[:spid_index]
     slo_attributes
   end
 

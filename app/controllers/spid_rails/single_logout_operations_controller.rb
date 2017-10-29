@@ -12,7 +12,7 @@ class SpidRails::SingleLogoutOperationsController < SpidRails::SpidController
                                                              slo_settings,
                                                              matches_request_id: session[:transaction_id])
     if logout_response.validate
-      session[:index] = nil
+      session[:spid_index] = nil
       redirect_to main_app.welcome_path, notice: 'Utente correttamente sloggato'
     else
       render plain: response.inspect
