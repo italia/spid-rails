@@ -9,12 +9,12 @@ module SpidRails
       @routes = Engine.routes
     end
 
-    test "get new" do
+    test "get new slo" do
       get spid_rails.new_slo_url()
       assert_response :redirect
     end
 
-    test "get create" do
+    test "create slo" do
       post spid_rails.slo_url('SAMLResponse' => File.read('test/templates/logout_response'))
       assert_response :redirect
       # TODO: verificare come usare main_app in test
