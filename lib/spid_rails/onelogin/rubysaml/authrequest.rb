@@ -1,6 +1,6 @@
 # Necessario override della classe originaria della libreria,
 # al fine di rendere conforme il nodo Issuer alle regole tecniche SPID,
-# nella forma delle righe aggiunte 31 e 32
+# (aggiunte righe 32 e 33)
 
 module OneLogin
   module RubySaml
