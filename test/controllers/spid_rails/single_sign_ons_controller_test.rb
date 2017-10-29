@@ -19,7 +19,7 @@ module SpidRails
     test "create sso" do
       get new_sso_url(sso: { idp: :poste } )
       post sso_url('SAMLResponse' => File.read('test/templates/authn_response'))
-      assert_response :success
+      assert_redirected_to '/'
     end
 
   end
