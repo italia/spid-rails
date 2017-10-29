@@ -1,6 +1,6 @@
 module SpidRails
 
-  class Settings::Request < Settings
+  class Settings::Sso < Settings
 
     def to_hash
       sso_attributes = sp_attributes.merge(idp_attributes)

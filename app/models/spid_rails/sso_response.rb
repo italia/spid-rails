@@ -1,10 +1,10 @@
 module SpidRails
 
-  class Response
+  class SsoResponse
 
     def initialize saml_response, sso_params
       response = OneLogin::RubySaml::Response.new(saml_response)
-      settings = SpidRails::Settings::Request.new(sso_params)
+      settings = SpidRails::Settings::Sso.new(sso_params)
       saml_settings = OneLogin::RubySaml::Settings.new(settings.to_hash)
       response.settings = saml_settings
       @response = response
