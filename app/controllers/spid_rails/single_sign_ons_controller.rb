@@ -14,7 +14,6 @@ class SpidRails::SingleSignOnsController < SpidRails::SpidController
       session[:index] = response.session_index
       redirect_to main_app.root_path, notice: 'Utente autenticato con successo'
     else
-      raise response.errors.to_s
       redirect_to main_app.root_path, notice: 'Autenticazione fallita'
     end
   end
