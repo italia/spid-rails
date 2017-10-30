@@ -15,12 +15,9 @@ module SpidRails
       logout_response = SpidRails::SloResponse.new(params[:SAMLResponse],
                                                   session[:spid_slo_id],
                                                   slo_params)
-      if logout_response.valid?
-        session[:sso_params] = session[:spid_index] = session[:spid_slo_id] = nil
-        redirect_to main_app.root_path, notice: 'Logout utente eseguito con successo'
-      else
-        redirect_to main_app.root_path, notice: 'Logout utente fallito'
-      end
+      # TODO: approfondire validazione logout
+      destroy_spid_session
+      redirect_to main_app.root_path, notice: 'Logout utente eseguito con successo'
     end
 
     private
@@ -31,6 +28,14 @@ module SpidRails
         idp: session[:sso_params]['idp'],
         session_index: session[:spid_index]
       }
+    end
+
+    def destroy_spid_session
+      session[:sso_params] = nil
+      session[:spid_index] = nil
+      session[:spid_slo_id] = nil
+      session[:spid_relay_state] = nil
+      session[:spid_login_time] = nil
     end
 
   end

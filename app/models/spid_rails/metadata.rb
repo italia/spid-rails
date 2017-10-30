@@ -1,6 +1,5 @@
 module SpidRails
-# TODO: verificare presenza bindings in metadata_urls
-# restituire true false da save? verificare standards
+
   class Metadata
     attr_accessor :settings
 

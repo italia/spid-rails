@@ -23,6 +23,8 @@ module SpidRails
 
     attr_accessor :session_index
 
+    attr_accessor :relay_state
+
 
     def initialize spid_params
       @metadata_path  = SpidRails.app_metadata_path
@@ -30,7 +32,6 @@ module SpidRails
       @slo_path       = SpidRails.app_slo_path
       @keys_path      = SpidRails.keys_path
       @sha            = SpidRails.sha
-      @idp            = :gov
       @bindings       = [:redirect]
       @spid_level     = 1
       spid_params.each do |k, v|
