@@ -1,12 +1,11 @@
 module SpidRails
 
-  # TODO: rinominare SSO?
-  class Request
+  class SsoRequest
 
     attr_accessor :settings
 
     def initialize spid_params
-      spid_settings = SpidRails::Settings::Request.new(spid_params)
+      spid_settings = SpidRails::Settings::Sso.new(spid_params)
       @settings = spid_settings.to_hash
     end
 
