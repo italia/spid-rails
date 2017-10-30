@@ -6,10 +6,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Rails - Spid</h1>
-      <%= link_to 'Entra con SPID',
-          spid_rails.new_sso_path(sso: { idp: :gov }),
-          class: 'btn btn-primary' %>
+      <h1>App</h1>
+      <%= link_to 'Esci',
+        spid_rails.new_slo_path(sso: { idp: :gov }),
+        class: 'btn btn-primary' %>
     </div>
   </div>
 </div>

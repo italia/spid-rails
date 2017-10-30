@@ -16,7 +16,7 @@ module SpidRails
                                                   session[:spid_slo_id],
                                                   slo_params)
       if logout_response.valid?
-        session[:sso_params] = session[:spid_index] = session[:spid_slo_id] = nil
+        session[:sso_params] = session[:spid_index] = session[:spid_slo_id] = session[:spid_relay_state] = nil
         redirect_to main_app.root_path, notice: 'Logout utente eseguito con successo'
       else
         redirect_to main_app.root_path, notice: 'Logout utente fallito'
