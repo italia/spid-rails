@@ -96,7 +96,7 @@ link_to "Metadata SP", spid_rails.metadata_path
 E' necessario fornire come parametro l'Idp cui indirizzare la richiesta, facoltativo il livello di autenticazione Spid (default: '1') e i bindings della richiesta all' Idp (default: ['redirect']).
 ```ruby
 # Esempio di link al login tramite l'Idp di test https:://idp.spid.gov.it
-link_to "Login con Spid", spid_rails.metadata_path(spid: { idp: :agid_test, spid_level: 2 })
+link_to "Login con Spid", spid_rails.new_sso_path(sso: { idp: :agid_test, spid_level: 2 })
 ```
 
 Gli Identity Provider attualmente supportati sono:
@@ -113,8 +113,8 @@ Gli Identity Provider attualmente supportati sono:
 
 ```spid_rails.new_slo_path``` e ```spid_rails.new_slo_url``` infine restituiscono il percorso tramite il quale inizializzare una richiesa di logout all'Identity Provider che ha autenticato la sessione corrente.
 ```ruby
-# Esempio di link al logout tramite l'Idp di test https:://idp.spid.gov.it
-link_to "Login con Spid", spid_rails.metadata_path(spid: { idp: :agid_test, spid_level: 2 })
+# Esempio di link al logout
+link_to "Logout", spid_rails.new_slo_path
 ```
 
 
