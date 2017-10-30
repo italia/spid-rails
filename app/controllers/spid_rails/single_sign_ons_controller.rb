@@ -1,7 +1,7 @@
 require_dependency "spid_rails/application_controller"
 
 module SpidRails
-  
+
   class SingleSignOnsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: :create
 
@@ -12,7 +12,6 @@ module SpidRails
     end
 
     def create
-      # TODO: redirect a richiesta originale
       response = SpidRails::SsoResponse.new(params[:SAMLResponse], session[:sso_params])
       if response.valid?
         session[:spid_index] = response.session_index

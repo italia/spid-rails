@@ -9,8 +9,7 @@ module SpidRails
       @routes = Engine.routes
     end
 
-    # TODO: sistemare con vcr e gov invece di poste
-    # asserzione di redirect invece di success
+    # TODO: implementare vcr
     test "get new sso" do
       get new_sso_url(sso: { idp: :poste } )
       assert_response :redirect

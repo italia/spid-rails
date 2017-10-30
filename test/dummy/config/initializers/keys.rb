@@ -3,7 +3,6 @@ private_key = key.to_pem
 cert = OpenSSL::X509::Certificate.new
 name = OpenSSL::X509::Name.parse 'CN=nobody/DC=example'
 open Rails.root + 'lib/.keys/private_key.pem', 'w' do |io| io.write private_key end
-# TODO:verificare senso ogni passaggio
 cert.version = 2
 cert.serial = 0
 cert.not_before = Time.now
