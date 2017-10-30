@@ -16,7 +16,7 @@ module SpidRails
       if response.valid?
         session[:spid_index] = response.session_index
         session[:spid_login_time] = Time.now
-        redirect_to session[:spid_relay_state], notice: 'Utente autenticato con successo'
+        redirect_to session[:relay_state] || main_app.root_path, notice: 'Utente autenticato con successo'
       else
         redirect_to main_app.root_path, notice: 'Autenticazione fallita'
       end
