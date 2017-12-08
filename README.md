@@ -18,7 +18,7 @@ repository: https://github.com/rubynetti/rubynetti-rails
 All'interno del Gemfile indicare questa gemma:
 
 ```ruby
-gem 'spid-rails', git: 'git@github.com:rubynetti/spid-rails.git', require: 'spid_rails'
+gem 'spid-rails', git: 'git@github.com:italia/spid-rails.git', require: 'spid_rails'
 ```
 
 Eseguire
