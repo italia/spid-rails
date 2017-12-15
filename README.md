@@ -1,4 +1,4 @@
-# spid-rails 0.1.0
+# spid-rails 0.1
 Autenticazione SPID per Ruby on Rails.  
 Questa gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
@@ -18,7 +18,7 @@ repository: https://github.com/rubynetti/rubynetti-rails
 All'interno del Gemfile indicare questa gemma:
 
 ```ruby
-gem 'spid-rails', git: 'git@github.com:italia/spid-rails.git', require: 'spid_rails'
+gem 'spid-rails', require: 'spid_rails'
 ```
 
 Eseguire
@@ -135,11 +135,11 @@ Un esempio rudimentale di verifica del login dell'utente all'interno di un'azion
 # app/controllers/my_controller.rb
 class MyController < Application controller
   before_action :validate_spid_session
-  
+
   ...
-  
+
   private
-  
+
   def validate_spid_session
     if session[:spid_index].blank?
       session[:spid_relay_state] = request.path
