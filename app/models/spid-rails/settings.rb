@@ -28,11 +28,11 @@ module Spid
 
 
       def initialize spid_params
-        @metadata_path  = SpidRails.app_metadata_path
-        @sso_path       = SpidRails.app_sso_path
-        @slo_path       = SpidRails.app_slo_path
-        @keys_path      = SpidRails.keys_path
-        @sha            = SpidRails.sha
+        @metadata_path  = Spid::Rails.app_metadata_path
+        @sso_path       = Spid::Rails.app_sso_path
+        @slo_path       = Spid::Rails.app_slo_path
+        @keys_path      = Spid::Rails.keys_path
+        @sha            = Spid::Rails.sha
         @bindings       = [:redirect]
         @spid_level     = 1
         spid_params.each do |k, v|
@@ -41,8 +41,8 @@ module Spid
       end
 
       def security_attributes
-        dig_alg = SpidRails::Certificate.digest_algorithm(@sha)
-        sig_alg = SpidRails::Certificate.signature_algorithm(@sha)
+        dig_alg = Certificate.digest_algorithm(@sha)
+        sig_alg = Certificate.signature_algorithm(@sha)
         {
           metadata_signed: true,
           digest_method: dig_alg,

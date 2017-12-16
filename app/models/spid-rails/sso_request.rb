@@ -6,7 +6,7 @@ module Spid
       attr_accessor :settings
 
       def initialize spid_params
-        spid_settings = SpidRails::Settings::Sso.new(spid_params)
+        spid_settings = Settings::Sso.new(spid_params)
         @settings = spid_settings.to_hash
       end
 
@@ -20,7 +20,7 @@ module Spid
         if settings[:authn_context_comparison] != 'minimum'
           raise "AuthnContextComparison deve essere settato a 'minimum' (impostare authn_context_comparison a 'minimum')"
         end
-        if settings[:protocol_binding] != SpidRails::Settings.saml_bindings[:post]
+        if settings[:protocol_binding] != Settings.saml_bindings[:post]
           raise "Issuer deve contenere l'attributo ProtocolBinding con binding POST (impostare protocl_binding a ':post')"
         end
       end

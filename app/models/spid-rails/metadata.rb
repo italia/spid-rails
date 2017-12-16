@@ -10,7 +10,7 @@ module Spid
       end
 
       def initialize spid_params
-        spid_settings = SpidRails::Settings::Metadata.new(spid_params)
+        spid_settings = Settings::Metadata.new(spid_params)
         @settings = spid_settings.to_hash
       end
 
@@ -26,14 +26,14 @@ module Spid
       end
 
       def validate_signature_encryption
-        signature_algorithms = SpidRails::Certificate.signature_algorithms
+        signature_algorithms = Certificate.signature_algorithms
         if signature_algorithms.exclude?(settings[:security][:signature_method])
           raise 'Signature deve essere presente (impostare encryption sha a 256, 384, 512)'
         end
       end
 
       def validate_digest_encryption
-        digest_algorithms = SpidRails::Certificate.digest_algorithms
+        digest_algorithms = Certificate.digest_algorithms
         if digest_algorithms.exclude?(settings[:security][:digest_method])
           raise 'Signature deve essere presente (impostare encryption sha a 256, 384, 512)'
         end

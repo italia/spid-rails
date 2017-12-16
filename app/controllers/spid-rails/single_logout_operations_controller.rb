@@ -7,13 +7,13 @@ module Spid
       skip_before_action :verify_authenticity_token, only: :create
 
       def new
-        logout_request = SpidRails::SloRequest.new(slo_params)
+        logout_request = SloRequest.new(slo_params)
         redirect_to logout_request.to_saml
         session[:spid_slo_id] = logout_request.uuid
       end
 
       def create
-        logout_response = SpidRails::SloResponse.new(params[:SAMLResponse],
+        logout_response = SloResponse.new(params[:SAMLResponse],
                                                     session[:spid_slo_id],
                                                     slo_params)
         # TODO: approfondire validazione logout

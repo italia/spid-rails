@@ -4,7 +4,7 @@ module Spid
     class SloResponse
 
       def initialize saml_response, slo_id, slo_params
-        spid_settings = SpidRails::Settings::Slo.new(slo_params)
+        spid_settings = Settings::Slo.new(slo_params)
         settings = OneLogin::RubySaml::Settings.new(spid_settings.to_hash)
         @response = OneLogin::RubySaml::Logoutresponse.new(saml_response,
                                                            settings,

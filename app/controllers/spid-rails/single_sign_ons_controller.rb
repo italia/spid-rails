@@ -7,13 +7,13 @@ module Spid
       skip_before_action :verify_authenticity_token, only: :create
 
       def new
-        request = SpidRails::SsoRequest.new(sso_params)
+        request = SsoRequest.new(sso_params)
         redirect_to request.to_saml
         session[:sso_params] = sso_params
       end
 
       def create
-        response = SpidRails::SsoResponse.new(params[:SAMLResponse], session[:sso_params])
+        response = SsoResponse.new(params[:SAMLResponse], session[:sso_params])
         if response.valid?
           session[:spid_index] = response.session_index
           session[:spid_login_time] = Time.now

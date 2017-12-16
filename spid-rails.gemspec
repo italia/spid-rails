@@ -6,7 +6,7 @@ require "spid-rails/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "spid-rails"
-  s.version     = SpidRails::VERSION
+  s.version     = Spid::Rails::VERSION
   s.authors     = ["Alessandro Descovi, Giacomo Bertoldi"]
   s.email       = ["descovi@gmail.com, bertoldi.giacomo@gmail.com"]
   s.homepage    = "https://github.com/italia/spid-rails"
