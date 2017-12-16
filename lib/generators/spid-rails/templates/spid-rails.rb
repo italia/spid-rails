@@ -1,6 +1,6 @@
 # Impostazioni di default dello Spid Engine
 
-SpidRails.tap do |config|
+Spid::Rails.tap do |config|
 
   # Mount point di Spid sull'applicazione
   # default: 'spid'

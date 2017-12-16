@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :spid_rails do
+# task :spid-rails do
 #   # Task goes here
 # end
