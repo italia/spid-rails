@@ -85,18 +85,18 @@ end
 
 Una volta installata la gemma, verranno creati una serie di helper utilizzabili nelle view e nei controller.
 
-```spid-rails.metadata_path``` e ```spid-rails.metadata_url``` restituiscono il percorso al quale è reperibile il metadata del Service Provider.
+```spid_rails.metadata_path``` e ```spid_rails.metadata_url``` restituiscono il percorso al quale è reperibile il metadata del Service Provider.
 ```ruby
 # Esempio di link al metadata del ServiceProvider
-link_to "Metadata SP", spid-rails.metadata_path
+link_to "Metadata SP", spid_rails.metadata_path
 ```
 
 
-```spid-rails.new_sso_path``` e ```spid-rails.new_sso_url``` restituiscono il percorso tramite il quale inizializzare una richiesa di autenticazione all'Identity Provider.
+```spid_rails.new_sso_path``` e ```spid_rails.new_sso_url``` restituiscono il percorso tramite il quale inizializzare una richiesa di autenticazione all'Identity Provider.
 E' necessario fornire come parametro l'Idp cui indirizzare la richiesta, facoltativo il livello di autenticazione Spid (default: '1') e i bindings della richiesta all' Idp (default: ['redirect']).
 ```ruby
 # Esempio di link al login tramite l'Idp di test https:://idp.spid.gov.it
-link_to "Login con Spid", spid-rails.new_sso_path(sso: { idp: :agid_test, spid_level: 2 })
+link_to "Login con Spid", spid_rails.new_sso_path(sso: { idp: :agid_test, spid_level: 2 })
 ```
 
 Gli Identity Provider attualmente supportati sono:
@@ -111,10 +111,10 @@ Gli Identity Provider attualmente supportati sono:
 - 'poste_test' : servizio Idp di test di Poste Italiane S.p.A.
 
 
-```spid-rails.new_slo_path``` e ```spid-rails.new_slo_url``` infine restituiscono il percorso tramite il quale inizializzare una richiesa di logout all'Identity Provider che ha autenticato la sessione corrente.
+```spid_rails.new_slo_path``` e ```spid_rails.new_slo_url``` infine restituiscono il percorso tramite il quale inizializzare una richiesa di logout all'Identity Provider che ha autenticato la sessione corrente.
 ```ruby
 # Esempio di link al logout
-link_to "Logout", spid-rails.new_slo_path
+link_to "Logout", spid_rails.new_slo_path
 ```
 
 
