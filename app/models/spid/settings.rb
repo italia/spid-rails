@@ -56,8 +56,8 @@ module Spid
         issuer: host + metadata_path,
         assertion_consumer_service_url: host + sso_path,
         single_logout_service_url: host + slo_path,
-        private_key: File.read("#{Rails.root}/#{keys_path}/private_key.pem"),
-        certificate: File.read("#{Rails.root}/#{keys_path}/certificate.pem"),
+        private_key: File.read("#{::Rails.root}/#{keys_path}/private_key.pem"),
+        certificate: File.read("#{::Rails.root}/#{keys_path}/certificate.pem"),
         security: security_attributes
       }
     end
