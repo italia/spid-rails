@@ -8,7 +8,7 @@ module Spid
 
       setup do
         @routes = Engine.routes
-        get spid_rails.new_sso_url(sso: { idp: :poste })
+        get spid_rails.new_sso_url(sso: { idp: :poste_test })
       end
 
       test "get new slo" do

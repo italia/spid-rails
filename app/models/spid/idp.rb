@@ -8,7 +8,7 @@ module Spid
         'aruba'      => 'https://loginspid.aruba.it/metadata',
         'infocert'   => 'https://identity.infocert.it/metadata/metadata.xml',
         'namirial'   => 'https://idp.namirialtsp.com/idp/metadata',
-        'poste'      => 'http://posteid.poste.it/jod-fs/metadata/metadata.xml',
+        'poste'      => 'https://posteid.poste.it/jod-fs/metadata/metadata.xml',
         'poste_test' => 'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml',
         'spiditalia' => 'https://spid.register.it/login/metadata',
         'sielte'     => 'https://identity.sieltecloud.it/simplesaml/metadata.xml',

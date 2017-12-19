@@ -12,7 +12,7 @@ module Spid
 
       # TODO: implementare vcr
       test "get new sso" do
-        get new_sso_url(sso: { idp: :poste } )
+        get new_sso_url(sso: { idp: :poste_test } )
         assert_response :redirect
       end
 
