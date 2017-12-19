@@ -38,7 +38,7 @@ Il metadata generato può essere utilizzato per farsi accreditare e in seguito d
 Per creare il file di configurazione:
 
 ```bash
-$ rails g spid-rails:config
+$ rails g spid:rails:config
 ```
 
 Il file viene aggiunto agli initializer dell'applicazione e permette il settaggio personalizzato del mount-point dell'engine e i relativi end-point per le procedure Spid di login, logout e visualizzazione del metadata del Service Provider.
