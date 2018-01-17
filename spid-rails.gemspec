@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "spid_rails/version"
+require "spid-rails/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "spid-rails"
-  s.version     = SpidRails::VERSION
+  s.version     = Spid::Rails::VERSION
   s.authors     = ["Alessandro Descovi, Giacomo Bertoldi"]
   s.email       = ["descovi@gmail.com, bertoldi.giacomo@gmail.com"]
   s.homepage    = "https://github.com/italia/spid-rails"
@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.1", ">= 5.1.4"
   s.add_dependency "ruby-saml", "1.5.0"
 
-  s.add_development_dependency "sqlite3", "~> 0"
+  s.add_development_dependency "sqlite3", "~> 1.3"
 end

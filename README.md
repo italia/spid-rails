@@ -18,7 +18,7 @@ repository: https://github.com/rubynetti/rubynetti-rails
 All'interno del Gemfile indicare questa gemma:
 
 ```ruby
-gem 'spid-rails', require: 'spid_rails'
+gem 'spid-rails'
 ```
 
 Eseguire
@@ -38,7 +38,7 @@ Il metadata generato può essere utilizzato per farsi accreditare e in seguito d
 Per creare il file di configurazione:
 
 ```bash
-$ rails g spid_rails:config
+$ rails g spid:rails:config
 ```
 
 Il file viene aggiunto agli initializer dell'applicazione e permette il settaggio personalizzato del mount-point dell'engine e i relativi end-point per le procedure Spid di login, logout e visualizzazione del metadata del Service Provider.
@@ -46,11 +46,11 @@ Il file viene aggiunto agli initializer dell'applicazione e permette il settaggi
 Le restanti impostazioni permettono di configurare il percorso di sistema dove reperire la coppia chiave privata/certificato e il livello di crittografia per l'eventuale signature.
 
 ```ruby
-# config/initializers/spid_rails.rb
+# config/initializers/spid-rails.rb
 
 # Impostazioni di default dello Spid Engine
 
-SpidRails.tap do |config|
+Spid::Rails.tap do |config|
 
   # Mount point di Spid sull'applicazione
   # default: 'spid'
