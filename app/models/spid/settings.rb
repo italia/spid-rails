@@ -46,6 +46,7 @@ module Spid
         metadata_signed: true,
         digest_method: dig_alg,
         signature_method: sig_alg,
+        authn_requests_signed: true,
         want_assertions_signed: true
       }
     end
