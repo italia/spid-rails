@@ -3,7 +3,6 @@ module Spid
 
     module Generators
 
-      # Chiamato tramite rails g spid:rails:config
       class ConfigGenerator < ::Rails::Generators::Base
 
         source_root File.expand_path("../templates", __FILE__)
