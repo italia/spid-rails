@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Alessandro Descovi, Giacomo Bertoldi"]
   s.email       = ["descovi@gmail.com, bertoldi.giacomo@gmail.com"]
   s.homepage    = "https://github.com/italia/spid-rails"
-  s.summary     = "SPID, il Sistema Pubblico di Identità Digitale"
+  s.summary     = "SPID, il Sistema Pubblico di Identita' Digitale"
   s.description = "Soluzione per poter effettuare il login tramite SPID"
   s.license     = "MIT"
 
@@ -20,6 +20,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.1", ">= 5.1.4"
   s.add_dependency "ruby-saml", "1.5.0"
+
+  # Resolve CVE-2018-3741  vulnerability
+  s.add_dependency "rails-html-sanitizer", "~> 1.0", ">= 1.0.4"
 
   s.add_development_dependency "sqlite3", "~> 1.3"
 end
