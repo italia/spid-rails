@@ -12,6 +12,7 @@ repository: https://github.com/rubynetti/rubynetti-rails
 - [X] Sistema di configurazione
 - [ ] Integrazione con omniauth
 - [ ] Integrazione o esempio di integrazione con devise
+- [ ] Configurazione richiesta attributi utente
 
 
 ## Installazione
