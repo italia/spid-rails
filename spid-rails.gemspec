@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails-html-sanitizer", "~> 1.0", ">= 1.0.4"
 
   s.add_development_dependency "sqlite3", "~> 1.3"
+  s.add_development_dependency "simplecov"
 end
