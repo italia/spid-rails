@@ -10,9 +10,9 @@
 # Cop supports --auto-correct.
 # Configuration parameters: Include, TreatCommentsAsGroupSeparators.
 # Include: **/*.gemspec
-Gemspec/OrderedDependencies:
-  Exclude:
-    - 'spid-rails.gemspec'
+# Gemspec/OrderedDependencies:
+#   Exclude:
+#     - 'spid-rails.gemspec'
 
 # Offense count: 1
 # Configuration parameters: Include.
@@ -27,46 +27,46 @@ Gemspec/RequiredRubyVersion:
 # SupportedHashRocketStyles: key, separator, table
 # SupportedColonStyles: key, separator, table
 # SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
-Layout/AlignHash:
-  Exclude:
-    - 'config/routes.rb'
+# Layout/AlignHash:
+#   Exclude:
+#     - 'config/routes.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: with_first_parameter, with_fixed_indentation
-Layout/AlignParameters:
-  Exclude:
-    - 'app/controllers/spid/rails/single_logout_operations_controller.rb'
-    - 'test/integration/spid/rails/metadata_conformity_test.rb'
+# Layout/AlignParameters:
+#   Exclude:
+#     - 'app/controllers/spid/rails/single_logout_operations_controller.rb'
+#     - 'test/integration/spid/rails/metadata_conformity_test.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Layout/EmptyLineBetweenDefs:
-  Exclude:
-    - 'app/models/spid/metadata.rb'
-    - 'app/models/spid/settings.rb'
+# Layout/EmptyLineBetweenDefs:
+#   Exclude:
+#     - 'app/models/spid/metadata.rb'
+#     - 'app/models/spid/settings.rb'
 
 # Offense count: 12
 # Cop supports --auto-correct.
-Layout/EmptyLines:
-  Exclude:
-    - 'Rakefile'
-    - 'app/models/spid/metadata.rb'
-    - 'app/models/spid/settings.rb'
-    - 'test/dummy/bin/setup'
-    - 'test/integration/spid/rails/metadata_conformity_test.rb'
-    - 'test/test_helper.rb'
+# Layout/EmptyLines:
+#   Exclude:
+#     - 'Rakefile'
+#     - 'app/models/spid/metadata.rb'
+#     - 'app/models/spid/settings.rb'
+#     - 'test/dummy/bin/setup'
+#     - 'test/integration/spid/rails/metadata_conformity_test.rb'
+#     - 'test/test_helper.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'lib/generators/spid/rails/templates/spid-rails.rb'
-    - 'test/dummy/db/schema.rb'
+# Layout/EmptyLinesAroundBlockBody:
+#   Exclude:
+#     - 'lib/generators/spid/rails/templates/spid-rails.rb'
+#     - 'test/dummy/db/schema.rb'
 
 # Offense count: 37
 # Cop supports --auto-correct.
@@ -77,9 +77,9 @@ Layout/EmptyLinesAroundClassBody:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'app/models/spid/metadata.rb'
+# Layout/EmptyLinesAroundMethodBody:
+#   Exclude:
+#     - 'app/models/spid/metadata.rb'
 
 # Offense count: 63
 # Cop supports --auto-correct.
@@ -92,63 +92,63 @@ Layout/EmptyLinesAroundModuleBody:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
-Layout/IndentHash:
-  Exclude:
-    - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
+# Layout/IndentHash:
+#   Exclude:
+#     - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
+# Layout/LeadingCommentSpace:
+#   Exclude:
+#     - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'lib/generators/spid/rails/keys_generator.rb'
+# Layout/MultilineOperationIndentation:
+#   Exclude:
+#     - 'lib/generators/spid/rails/keys_generator.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/SpaceAfterComma:
-  Exclude:
-    - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
+# Layout/SpaceAfterComma:
+#   Exclude:
+#     - 'lib/spid-rails/onelogin/rubysaml/authrequest.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
 # SupportedStyles: space, no_space
 # SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Exclude:
-    - 'app/models/spid/settings.rb'
+# Layout/SpaceBeforeBlockBraces:
+#   Exclude:
+#     - 'app/models/spid/settings.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'test/dummy/config/environments/production.rb'
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Exclude:
+#     - 'test/dummy/config/environments/production.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: space, no_space
-Layout/SpaceInsideParens:
-  Exclude:
-    - 'test/controllers/spid/rails/single_sign_ons_controller_test.rb'
+# Layout/SpaceInsideParens:
+#   Exclude:
+#     - 'test/controllers/spid/rails/single_sign_ons_controller_test.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
-  Exclude:
-    - 'test/integration/navigation_test.rb'
+# Layout/TrailingBlankLines:
+#   Exclude:
+#     - 'test/integration/navigation_test.rb'
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -174,9 +174,9 @@ Lint/SplatKeywordArguments:
     - 'app/models/spid/sso_request.rb'
 
 # Offense count: 1
-Lint/UselessAssignment:
-  Exclude:
-    - 'app/controllers/spid/rails/single_logout_operations_controller.rb'
+# Lint/UselessAssignment:
+#   Exclude:
+#     - 'app/controllers/spid/rails/single_logout_operations_controller.rb'
 
 # Offense count: 6
 Metrics/AbcSize:

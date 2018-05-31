@@ -1,7 +1,6 @@
 # Impostazioni di default dello Spid Engine
 
 Spid::Rails.tap do |config|
-
   # Mount point di Spid sull'applicazione
   # default: 'spid'
   # config.mount_point = 'spid'
@@ -26,5 +25,4 @@ Spid::Rails.tap do |config|
   # Livello di crittografia SHA per la generazione delle signature
   # default: 256
   # config.sha = 256
-
 end

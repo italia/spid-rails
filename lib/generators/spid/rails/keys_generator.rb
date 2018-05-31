@@ -10,8 +10,8 @@ module Spid
         class_option :validity, type: :numeric, default: 1, desc: "Certificate validity expressed in months"
 
         desc "Description:\n" +
-            "  Generate a RSA key and use it to generate a self-signed certificate in the keys path\n" +
-            "  WARNING: this generator is ment to be used only for testing purpose."
+             "  Generate a RSA key and use it to generate a self-signed certificate in the keys path\n" +
+             "  WARNING: this generator is ment to be used only for testing purpose."
 
         def create_key
           @key = OpenSSL::PKey::RSA.new options[:size]

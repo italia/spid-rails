@@ -13,9 +13,9 @@ module Spid
       end
 
       def create
-        logout_response = SloResponse.new(params[:SAMLResponse],
-                                                    session[:spid_slo_id],
-                                                    slo_params)
+        _logout_response = SloResponse.new(params[:SAMLResponse],
+                                           session[:spid_slo_id],
+                                           slo_params)
         # TODO: approfondire validazione logout
         destroy_spid_session
         redirect_to main_app.root_path, notice: 'Logout utente eseguito con successo'
