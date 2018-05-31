@@ -1,5 +1,5 @@
-# spid-rails 0.1.2
-Autenticazione SPID per Ruby on Rails.  
+# spid-rails 0.1.2 [![Build Status](https://secure.travis-ci.org/italia/spid-rails.svg)](http://travis-ci.org/italia/spid-rails)
+Autenticazione SPID per Ruby on Rails.
 Questa gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby-saml).
 
 ## Cosa c'è e cosa manca

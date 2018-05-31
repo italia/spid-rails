@@ -26,6 +26,10 @@ require 'bundler/gem_tasks'
 
 require 'rake/testtask'
 
+require 'bundler/audit/task'
+Bundler::Audit::Task.new
+
+
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
@@ -34,3 +38,4 @@ end
 
 
 task default: :test
+task default: 'bundle:audit'
