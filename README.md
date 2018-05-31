@@ -8,7 +8,7 @@ Questa gemma si appoggia alla gemma [ruby-saml](https://github.com/onelogin/ruby
 repository: https://github.com/rubynetti/rubynetti-rails
 - [x] Login tramite redirect
 - [ ] Login tramite post
-- [ ] Sistema di testing automatico - WIP
+- [X] Sistema di testing automatico
 - [X] Sistema di configurazione
 - [ ] Integrazione con omniauth
 - [ ] Integrazione o esempio di integrazione con devise
