@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   # Resolve CVE-2018-3741  vulnerability
   s.add_dependency "rails-html-sanitizer", "~> 1.0", ">= 1.0.4"
 
+  s.add_development_dependency "bundler-audit"
   s.add_development_dependency "sqlite3", "~> 1.3"
   s.add_development_dependency "simplecov"
 end
