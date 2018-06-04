@@ -22,6 +22,11 @@ load 'rails/tasks/statistics.rake'
 require 'bundler/gem_tasks'
 
 require 'rake/testtask'
+require 'rubocop/rake_task'
+
+RuboCop::RakeTask.new(:rubocop) do |t|
+  t.options = ['--display-cop-names']
+end
 
 require 'bundler/audit/task'
 Bundler::Audit::Task.new
@@ -34,3 +39,4 @@ end
 
 task default: :test
 task default: 'bundle:audit'
+task default: :rubocop
