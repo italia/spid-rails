@@ -2,7 +2,6 @@ module Spid
 
   class Settings
 
-
     attr_accessor :host
 
     attr_accessor :metadata_path
@@ -24,7 +23,6 @@ module Spid
     attr_accessor :session_index
 
     attr_accessor :relay_state
-
 
     def initialize spid_params
       @metadata_path  = Spid::Rails.app_metadata_path
@@ -51,7 +49,6 @@ module Spid
       }
     end
 
-
     def sp_attributes
       {
         issuer: host + metadata_path,
@@ -64,7 +61,7 @@ module Spid
     end
 
     def idp_attributes
-      idp_bindings = @bindings.map{ |b| self.class.saml_bindings[b] }
+      idp_bindings = @bindings.map { |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
       parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
                                   true,

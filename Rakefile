@@ -17,18 +17,19 @@ end
 APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
 
-
 load 'rails/tasks/statistics.rake'
-
-
 
 require 'bundler/gem_tasks'
 
 require 'rake/testtask'
+require 'rubocop/rake_task'
+
+RuboCop::RakeTask.new(:rubocop) do |t|
+  t.options = ['--display-cop-names']
+end
 
 require 'bundler/audit/task'
 Bundler::Audit::Task.new
-
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
@@ -36,6 +37,6 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
-
 task default: :test
 task default: 'bundle:audit'
+task default: :rubocop

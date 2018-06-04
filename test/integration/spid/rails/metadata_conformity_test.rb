@@ -40,19 +40,17 @@ module Spid
       # Conformità KeyDescriptor - Signature
       test 'conformità signature' do
         signature_value_node = @metadata.at_xpath("//ds:Signature/ds:SignatureValue",
-                                              @namespaces)
+                                                  @namespaces)
         signature = signature_value_node.text
         assert signature.present?
 
-
         signature_method_node = @metadata.at_xpath("//ds:Signature//ds:SignatureMethod",
-                                                    @namespaces)
+                                                   @namespaces)
         algorithm = signature_method_node.attribute('Algorithm').value
         assert_includes @allowed_signature_algorithms, algorithm
 
-
         signature_digest_node = @metadata.at_xpath("//ds:Signature//ds:DigestMethod",
-                                                    @namespaces)
+                                                   @namespaces)
         algorithm = signature_digest_node.attribute('Algorithm').value
         assert_includes @allowed_digest_algorithms, algorithm
       end

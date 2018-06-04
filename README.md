@@ -57,7 +57,7 @@ Spid::Rails.tap do |config|
   # default: 'spid'
   # config.mount_point = 'spid'
 
-  # Url alla quale è disponibile il metadata del provider
+  # Url alla quale e' disponibile il metadata del provider
   # default: 'metadata'
   # config.metadata_path = 'metadata'
 

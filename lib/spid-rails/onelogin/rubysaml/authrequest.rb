@@ -26,9 +26,9 @@ module OneLogin
         if settings.assertion_consumer_service_url != nil
           root.attributes["AssertionConsumerServiceURL"] = settings.assertion_consumer_service_url
         end
-        #NameQualifier e Format da requisiti SPID
+        # NameQualifier e Format da requisiti SPID
         if settings.issuer != nil
-          issuer = root.add_element "saml:Issuer",{
+          issuer = root.add_element "saml:Issuer", {
             "NameQualifier" => settings.issuer,
             "Format" => 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity'
           }
@@ -36,9 +36,9 @@ module OneLogin
         end
         if settings.name_identifier_format != nil
           root.add_element "samlp:NameIDPolicy", {
-              # Might want to make AllowCreate a setting?
-              "AllowCreate" => "true",
-              "Format" => settings.name_identifier_format
+            # Might want to make AllowCreate a setting?
+            "AllowCreate" => "true",
+            "Format" => settings.name_identifier_format
           }
         end
 

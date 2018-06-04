@@ -58,7 +58,6 @@ module Spid
       save and @to_xml
     end
 
-
     def self.xml_namespaces
       {
         saml: 'urn:oasis:names:tc:SAML:2.0:assertion',
@@ -68,7 +67,6 @@ module Spid
         xenc: 'http://www.w3.org/2001/04/xmlenc#',
         xs: 'http://www.w3.org/2001/XMLSchema'
       }
-
     end
 
   end
