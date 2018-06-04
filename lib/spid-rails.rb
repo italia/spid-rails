@@ -7,7 +7,7 @@ module Spid
     mattr_accessor :mount_point
     @@mount_point = 'spid'
 
-    # Url alla quale è disponibile il metadata del provider
+    # Url alla quale e' disponibile il metadata del provider
     mattr_accessor :metadata_path
     @@metadata_path = 'metadata'
 
