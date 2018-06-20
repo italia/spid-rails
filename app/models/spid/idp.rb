@@ -12,7 +12,8 @@ module Spid
         'poste_test' => 'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml',
         'spiditalia' => 'https://spid.register.it/login/metadata',
         'sielte'     => 'https://identity.sieltecloud.it/simplesaml/metadata.xml',
-        'tim'        => 'https://login.id.tim.it/spid-services/MetadataBrowser/idp'
+        'tim'        => 'https://login.id.tim.it/spid-services/MetadataBrowser/idp',
+        'testenv2'   => 'http://spid-testenv:8088/metadata'
       }
     end
 
