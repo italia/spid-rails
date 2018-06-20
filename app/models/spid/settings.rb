@@ -64,7 +64,7 @@ module Spid
       idp_bindings = @bindings.map { |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
       parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
-                                  true,
+                                  false,
                                   sso_binding: idp_bindings
     end
 
