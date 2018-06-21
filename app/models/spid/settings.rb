@@ -51,7 +51,7 @@ module Spid
 
     def sp_attributes
       {
-        issuer: host + metadata_path,
+        issuer: host,
         assertion_consumer_service_url: host + sso_path,
         single_logout_service_url: host + slo_path,
         private_key: File.read("#{::Rails.root}/#{keys_path}/private_key.pem"),
@@ -64,7 +64,7 @@ module Spid
       idp_bindings = @bindings.map { |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
       parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
-                                  true,
+                                  false,
                                   sso_binding: idp_bindings
     end
 
