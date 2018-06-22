@@ -64,7 +64,7 @@ module Spid
       idp_bindings = @bindings.map { |b| self.class.saml_bindings[b] }
       parser = OneLogin::RubySaml::IdpMetadataParser.new
       parser.parse_remote_to_hash Idp.metadata_urls[@idp.to_s],
-                                  false,
+                                  validate_idp_metadata_cert?,
                                   sso_binding: idp_bindings
     end
 
@@ -76,6 +76,10 @@ module Spid
 
     def force_authn
       return true if @spid_level != 1
+    end
+
+    def validate_idp_metadata_cert?
+      @idp != 'testenv2'
     end
 
     # TODO spostare in utils
