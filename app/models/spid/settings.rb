@@ -79,7 +79,7 @@ module Spid
     end
 
     def validate_idp_metadata_cert?
-      !(@idp == 'testenv2')
+      @idp != 'testenv2'
     end
 
     # TODO spostare in utils
