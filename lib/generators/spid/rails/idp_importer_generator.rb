@@ -5,7 +5,7 @@ module Spid
 
       class IdpImporterGenerator < ::Rails::Generators::Base
 
-        source_root File.expand_path("../templates", __FILE__)
+        source_root File.expand_path("templates", __dir__)
 
         desc "Crea il file di import custom degli Idp (config/spid-rails/idp_import.yml)."
 
