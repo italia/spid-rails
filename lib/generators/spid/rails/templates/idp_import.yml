@@ -1,0 +1,12 @@
+# Identity Providers are loaded on a per environment basis
+
+agid_test: &agid_test
+  metadata_url: 'https://idp.spid.gov.it:8080/assets/idp-metadata.xml'
+  validate_cert: false
+
+development:
+  agid_test: *agid_test
+production:
+  agid_test: *agid_test
+test:
+  agid_test: *agid_test
