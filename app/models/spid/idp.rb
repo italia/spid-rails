@@ -13,6 +13,13 @@ module Spid
       new(idp_attributes.symbolize_keys)
     end
 
+    def self.import(file_path)
+      list = YAML.load_file(file_path)[::Rails.env]
+      list.each do |name, params|
+        @list[name] = params
+      end
+    end
+
     def initialize(metadata_url:, validate_cert: true)
       @metadata_url = metadata_url
       @validate_cert = validate_cert
