@@ -1,20 +1,25 @@
 module Spid
 
   class Idp
+    @list = YAML.load_file(
+      Spid::Rails::Engine.root.join("config", "spid-rails", "idp_list.yml")
+    )
 
-    def self.metadata_urls
-      {
-        'agid_test'  => 'http://localhost:3000/metadata-idp-gov.xml',
-        'aruba'      => 'https://loginspid.aruba.it/metadata',
-        'infocert'   => 'https://identity.infocert.it/metadata/metadata.xml',
-        'namirial'   => 'https://idp.namirialtsp.com/idp/metadata',
-        'poste'      => 'https://posteid.poste.it/jod-fs/metadata/metadata.xml',
-        'poste_test' => 'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml',
-        'spiditalia' => 'https://spid.register.it/login/metadata',
-        'sielte'     => 'https://identity.sieltecloud.it/simplesaml/metadata.xml',
-        'tim'        => 'https://login.id.tim.it/spid-services/MetadataBrowser/idp',
-        'testenv2'   => 'http://spid-testenv:8088/metadata'
-      }
+    attr_reader :metadata_url
+
+    def self.find(name)
+      raise "Idp not found" unless @list.key?(name)
+      idp_attributes = @list[name]
+      new(idp_attributes.symbolize_keys)
+    end
+
+    def initialize(metadata_url:, validate_cert: true)
+      @metadata_url = metadata_url
+      @validate_cert = validate_cert
+    end
+
+    def validate_cert?
+      @validate_cert
     end
 
   end
