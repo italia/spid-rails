@@ -1,0 +1,24 @@
+aruba:
+  metadata_url: 'https://loginspid.aruba.it/metadata'
+  validate_cert: true
+infocert:
+  metadata_url: 'https://identity.infocert.it/metadata/metadata.xml'
+  validate_cert: true
+namirial:
+  metadata_url: 'https://idp.namirialtsp.com/idp/metadata'
+  validate_cert: true
+poste:
+  metadata_url: 'https://posteid.poste.it/jod-fs/metadata/metadata.xml'
+  validate_cert: true
+poste_test:
+  metadata_url: 'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml'
+  validate_cert: false
+spiditalia:
+  metadata_url: 'https://spid.register.it/login/metadata'
+  validate_cert: true
+sielte:
+  metadata_url: 'https://identity.sieltecloud.it/simplesaml/metadata.xml'
+  validate_cert: true
+tim:
+  metadata_url: 'https://login.id.tim.it/spid-services/MetadataBrowser/idp'
+  validate_cert: true

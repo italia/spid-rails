@@ -262,7 +262,6 @@ Style/ExpandPathArguments:
   Exclude:
     - 'Rakefile'
     - 'bin/rails'
-    - 'lib/generators/spid/rails/config_generator.rb'
     - 'spid-rails.gemspec'
     - 'test/dummy/bin/bundle'
     - 'test/dummy/bin/setup'

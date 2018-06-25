@@ -82,6 +82,33 @@ end
 ```
 
 
+Per utilizzare Identity provider custom o modificare quelli presenti:
+
+```bash
+$ rails g spid:rails:idp_importer
+```
+
+Il file viene aggiunto alla cartella _config/spid-rails_ e permette di specificare idp per i diversi ambienti dell'applicazione.
+
+```YAML
+# app/config/spid-rails/idp_import.yml
+
+shared: &shared
+  local_test:
+    metadata_url: 'https://localhost:8080'
+    validate_cert: false
+
+development:
+  <<: *shared
+  agid:
+    metadata_url: 'https://idp.spid.gov.it:8080/assets/idp-metadata.xml'
+    validate_cert: false
+
+test:
+  <<: *shared
+```
+
+
 ### Nelle view
 
 Una volta installata la gemma, verranno creati una serie di helper utilizzabili nelle view e nei controller.
