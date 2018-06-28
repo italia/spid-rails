@@ -42,7 +42,7 @@ module Spid
       key = OpenSSL::PKey::RSA.new settings[:private_key]
       key_size = key.n.num_bytes * 8
       if key_size < 1024
-        raise "Signature deve essere presente (impostare una chiave di almeno a 1024 bit"
+        raise 'Signature deve essere presente (impostare una chiave di almeno a 1024 bit'
       end
     end
 

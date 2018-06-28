@@ -11,7 +11,7 @@ module Spid
         destination ::Rails.root.join('../tmp/generators')
         setup :prepare_destination
 
-        test "generator create file without errors" do
+        test 'generator create file without errors' do
           assert_nothing_raised do
             run_generator
             assert_file 'config/initializers/spid-rails.rb'

@@ -11,12 +11,12 @@ module Spid
         get spid_rails.new_sso_url(sso: { idp: :poste_test })
       end
 
-      test "get new slo" do
+      test 'get new slo' do
         get spid_rails.new_slo_url()
         assert_response :redirect
       end
 
-      test "create slo" do
+      test 'create slo' do
         get spid_rails.new_slo_url
         post spid_rails.slo_url('SAMLResponse' => File.read('test/templates/logout_response'))
         assert_response :redirect

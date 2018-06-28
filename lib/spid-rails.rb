@@ -1,4 +1,4 @@
-require "spid-rails/engine"
+require 'spid-rails/engine'
 
 module Spid
   module Rails
