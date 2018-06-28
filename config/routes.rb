@@ -9,5 +9,5 @@ Spid::Rails::Engine.routes.draw do
                  path: Spid::Rails.sso_path
   resource :slo, only: [:new, :create], controller: :single_logout_operations,
                  path: Spid::Rails.slo_path
-  get Spid::Rails.slo_path, to: "single_logout_operations#create"
+  get Spid::Rails.slo_path, to: 'single_logout_operations#create'
 end
