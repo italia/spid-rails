@@ -82,8 +82,8 @@ module Spid
     # TODO spostare in utils
     def self.saml_bindings
       {
-        post: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
-        redirect: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        post: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+        redirect: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       }
     end
 

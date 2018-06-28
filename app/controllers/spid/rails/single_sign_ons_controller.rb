@@ -1,4 +1,4 @@
-require_dependency "spid/rails/application_controller"
+require_dependency 'spid/rails/application_controller'
 
 module Spid
   module Rails

@@ -10,7 +10,7 @@ module Spid
         @routes = Engine.routes
       end
 
-      test "get metadata url" do
+      test 'get metadata url' do
         get metadata_url
         assert_response :success
       end
