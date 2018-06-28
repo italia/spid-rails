@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   mount Spid::Rails::Engine, at: Spid::Rails.mount_point
 end
 
-Rails.application.routes.draw do
-  mount Spid::Rails::Engine, at: Spid::Rails.mount_point
-end
-
 Spid::Rails::Engine.routes.draw do
   resource :metadata, only: :show,
                       path: Spid::Rails.metadata_path
