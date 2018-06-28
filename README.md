@@ -93,7 +93,7 @@ link_to "Metadata SP", spid_rails.metadata_path
 
 
 ```spid_rails.new_sso_path``` e ```spid_rails.new_sso_url``` restituiscono il percorso tramite il quale inizializzare una richiesa di autenticazione all'Identity Provider.
-E' necessario fornire come parametro l'Idp cui indirizzare la richiesta, facoltativo il livello di autenticazione Spid (default: '1') e i bindings della richiesta all' Idp (default: ['redirect']).
+È necessario fornire come parametro l'Idp cui indirizzare la richiesta, facoltativo il livello di autenticazione Spid (default: '1') e i bindings della richiesta all' Idp (default: ['redirect']).
 ```ruby
 # Esempio di link al login tramite l'Idp di test https:://idp.spid.gov.it
 link_to "Login con Spid", spid_rails.new_sso_path(sso: { idp: :agid_test, spid_level: 2 })
@@ -128,18 +128,18 @@ Avvenuta con successo l'autenticazione e fino al logout della stessa vengono agg
 
 ```session[:spid_login_time]``` l'istante in cui è avvenuto il login
 
-E' inoltre possibile settare la variabile ```session[:spid_relay_state]```, contenente l'indirizzo al quale si vuole essere reindirizzati in caso l'autenticazione abbia successo
+È inoltre possibile settare la variabile ```session[:spid_relay_state]```, contenente l'indirizzo al quale si vuole essere reindirizzati in caso l'autenticazione abbia successo
 
 Un esempio rudimentale di verifica del login dell'utente all'interno di un'azione del controller potrebbe essere il seguente
 ```ruby
 # app/controllers/my_controller.rb
 class MyController < Application controller
   before_action :validate_spid_session
-  
+
   ...
-  
+
   private
-  
+
   def validate_spid_session
     if session[:spid_index].blank?
       session[:spid_relay_state] = request.path
