@@ -148,15 +148,15 @@ link_to "Logout", spid_rails.new_slo_path
 
 ### Nei controller
 
-Avvenuta con successo l'autenticazione e fino al logout della stessa vengono aggiunte alla sessione le seguenti variabili:
+Dopo l'autenticazione e fino al logout vengono aggiunte alla sessione le seguenti variabili:
 
-```session[:sso_params]``` restituisce i parametri coi quali è stata effettuata l'ultima richiesta di autenticazione, in particolare l'idp
+```session[:sso_params]``` che restituisce i parametri coi quali è stata effettuata l'ultima richiesta di autenticazione, in particolare l'idp
 
-```session[:spid_index]```        restituisce l'identificativo dell'attuale sessione Spid, viene utilizzato nella procedura di logout
+```session[:spid_index]``` che restituisce l'identificativo dell'attuale sessione Spid e viene utilizzato nella procedura di logout
 
-```session[:spid_login_time]``` l'istante in cui è avvenuto il login
+```session[:spid_login_time]``` che restituisce il _time_ in cui è avvenuto il login
 
-E' inoltre possibile settare la variabile ```session[:spid_relay_state]```, contenente l'indirizzo al quale si vuole essere reindirizzati in caso l'autenticazione abbia successo
+È inoltre possibile settare la variabile ```session[:spid_relay_state]```, contenente l'indirizzo al quale si vuole essere reindirizzati in caso l'autenticazione abbia successo
 
 Un esempio rudimentale di verifica del login dell'utente all'interno di un'azione del controller potrebbe essere il seguente
 ```ruby
@@ -177,7 +177,8 @@ class MyController < Application controller
 
 end
 ```
-ove login_path indirizzi alla pagina in cui è posizionato il pulsante Spid
+
+dove _login_path_ indirizza alla pagina in cui è posizionato il pulsante Spid.
 
 
 ## License
