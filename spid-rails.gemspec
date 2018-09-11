@@ -18,11 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'rails', '>= 4.2'
-  s.add_dependency 'ruby-saml', '~> 1.8.0'
+  s.add_runtime_dependency 'rails', '~> 5.1', '>= 5.1.4'
+  s.add_runtime_dependency 'ruby-saml', '~> 1.8.0'
 
   # Resolve CVE-2018-3741  vulnerability
-  s.add_dependency 'rails-html-sanitizer', '~> 1.0', '>= 1.0.4'
+  s.add_runtime_dependency 'rails-html-sanitizer', '~> 1.0', '>= 1.0.4'
 
   s.add_development_dependency 'bundler-audit'
   s.add_development_dependency 'rubocop', '0.57.2'
