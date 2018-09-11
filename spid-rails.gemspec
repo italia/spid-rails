@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
 
   # Resolve CVE-2018-3741  vulnerability
   s.add_runtime_dependency 'rails-html-sanitizer', '~> 1.0', '>= 1.0.4'
+  s.add_runtime_dependency 'spid', '>= 0.17.2'
 
   s.add_development_dependency 'bundler-audit'
   s.add_development_dependency 'rubocop', '0.57.2'
