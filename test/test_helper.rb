@@ -1,5 +1,10 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter do |src|
+    src.filename =~ %r{lib/generators/spid/rails/templates} ||
+      src.filename =~ %r{lib/spid-rails/version.rb$}
+  end
+end
 
 require File.expand_path('../../test/dummy/config/environment.rb', __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path('../../test/dummy/db/migrate', __FILE__)]
