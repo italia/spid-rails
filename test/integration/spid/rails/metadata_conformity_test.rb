@@ -6,11 +6,17 @@ module Spid
     # Testa conformità a regole tecniche disponibili a
     # http://spid-regole-tecniche.readthedocs.io/en/latest/regole-tecniche-sp.html#metadata
     class MetadataConformityTest < ActionDispatch::IntegrationTest
-      include Engine.routes.url_helpers
+      include Spid::Rails::RouteHelper
 
       setup do
-        @routes = Engine.routes
-        @namespaces = Metadata.xml_namespaces
+        @namespaces = {
+          saml: 'urn:oasis:names:tc:SAML:2.0:assertion',
+          samlp: 'urn:oasis:names:tc:SAML:2.0:protocol',
+          md: 'urn:oasis:names:tc:SAML:2.0:metadata',
+          ds: 'http://www.w3.org/2000/09/xmldsig#',
+          xenc: 'http://www.w3.org/2001/04/xmlenc#',
+          xs: 'http://www.w3.org/2001/XMLSchema'
+        }
         @allowed_signature_algorithms = Certificate.signature_algorithms
         @allowed_digest_algorithms = Certificate.digest_algorithms
         get metadata_url
