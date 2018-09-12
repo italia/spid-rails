@@ -17,8 +17,8 @@ module Spid
           xenc: 'http://www.w3.org/2001/04/xmlenc#',
           xs: 'http://www.w3.org/2001/XMLSchema'
         }
-        @allowed_signature_algorithms = Certificate.signature_algorithms
-        @allowed_digest_algorithms = Certificate.digest_algorithms
+        @allowed_signature_algorithms = Spid::SIGNATURE_METHODS
+        @allowed_digest_algorithms = Spid::DIGEST_METHODS
         get metadata_url
         @metadata = css_select('*')
       end
