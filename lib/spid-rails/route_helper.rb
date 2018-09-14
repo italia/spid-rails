@@ -19,13 +19,11 @@ module Spid
           )
         options = { idp_name: idp_name }
         options[:authn_context] = authn_context if authn_context.present?
-        if attribute_service_index.present?
-          options[:attribute_service_index] = attribute_service_index
-        end
+        options[:attribute_service_index] = attribute_service_index if attribute_service_index.present?
         [
           Spid.configuration.login_path,
           options.to_param
-        ].join("?")
+        ].join('?')
       end
 
       def spid_logout_path(idp_name:)
@@ -33,7 +31,7 @@ module Spid
         [
           Spid.configuration.logout_path,
           options.to_param
-        ].join("?")
+        ].join('?')
       end
 
       def spid_login_url(options)
