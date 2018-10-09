@@ -18,7 +18,7 @@ module Spid
           end
         end
       end
-      
+
     end
 
   end

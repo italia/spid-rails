@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Spid.configure do |config|
-  config.hostname = ENV.fetch('HOST')
+  config.hostname = 'http://localhost'
 
   config.idp_metadata_dir_path = Rails.root.join('config/idp_metadata')
-  config.private_key_pem = ENV.fetch('PRIVATE_KEY')
-  config.certificate_pem = ENV.fetch('CERTIFICATE')
+  config.private_key_pem = File.read(Rails.root.join('config', 'spid-private-key.pem'))
+  config.certificate_pem = File.read(Rails.root.join('config', 'spid-certificate.pem'))
 
   config.metadata_path = '/spid/metadata'
   config.login_path = '/spid/login'
